@@ -1,0 +1,61 @@
+.radio-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include desktop-media {
+    &.desktop-small {
+      width: 16px;
+      height: 16px;
+    }
+    &.desktop-medium {
+      width: 20px;
+      height: 20px;
+    }
+    &.desktop-large {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  @include mobile-media {
+    &.mobile-small {
+      width: 16px;
+      height: 16px;
+    }
+    &.mobile-medium {
+      width: 20px;
+      height: 20px;
+    }
+    &.mobile-large {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+.radio-button-item {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform var(--first-transition), opacity var(--first-transition);
+
+  &.fill {
+    fill: var(--primary-color);
+  }
+
+  &:not(.fill) {
+    fill: var(--outline-second);
+  }
+
+  &.hide {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  &:not(.hide) {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

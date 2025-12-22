@@ -1,0 +1,14 @@
+import useSvg from "hooks/useSvg"
+
+function ArrowRoundLeftSvg({className}: {className?: string}) {
+	return (
+		<svg className={className} viewBox="0 0 20 20" fill="none">
+			{useSvg(
+				`<path d="M12.5003 17.2253C12.3419 17.2253 12.1836 17.1669 12.0586 17.0419L6.62527 11.6086C5.74194 10.7253 5.74194 9.27526 6.62527 8.39193L12.0586 2.95859C12.3003 2.71693 12.7003 2.71693 12.9419 2.95859C13.1836 3.20026 13.1836 3.60026 12.9419 3.84193L7.5086 9.27526C7.1086 9.67526 7.1086 10.3253 7.5086 10.7253L12.9419 16.1586C13.1836 16.4003 13.1836 16.8003 12.9419 17.0419C12.8169 17.1586 12.6586 17.2253 12.5003 17.2253Z"/>`,
+				"ArrowRoundLeftSvg",
+			)}
+		</svg>
+	)
+}
+
+export default ArrowRoundLeftSvg

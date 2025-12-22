@@ -1,0 +1,13 @@
+.skeleton {
+  background-color: var(--surface-third) !important;
+  //background-image: url("../../media/img-skeleton.svg") !important;
+  background-image: var(--skeleton-base64) !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
+@mixin skeleton {
+  &.skeleton {
+    @content;
+  }
+}

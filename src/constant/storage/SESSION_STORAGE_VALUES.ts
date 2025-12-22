@@ -1,0 +1,3 @@
+const SESSION_STORAGE_VALUES = {}
+
+export default SESSION_STORAGE_VALUES

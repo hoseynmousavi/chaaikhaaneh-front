@@ -1,0 +1,37 @@
+.material {
+  display: block;
+  position: relative;
+  user-select: none;
+  cursor: pointer;
+}
+
+.ripple-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  overflow: clip;
+  z-index: var(--default-z-index);
+}
+
+.ripple {
+  position: absolute;
+  background: var(--on-surface-first);
+  border-radius: 50%;
+  will-change: transform;
+  animation: ripple linear 250ms forwards;
+}
+
+@keyframes ripple {
+  from {
+    transform: scale(0);
+    opacity: 0.3;
+  }
+  to {
+    transform: scale(2);
+    opacity: 0;
+  }
+}

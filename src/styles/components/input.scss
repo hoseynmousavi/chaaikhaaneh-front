@@ -1,0 +1,211 @@
+.input-label {
+  position: relative;
+  display: block;
+
+  &.input-small {
+    --input-height: var(--small-btn-input-height);
+  }
+
+  &.input-medium {
+    --input-height: var(--medium-btn-input-height);
+  }
+
+  &.input-large {
+    --input-height: var(--large-btn-input-height);
+  }
+
+  &.input-x-large {
+    --input-height: var(--x-large-btn-input-height);
+  }
+
+  &.disabled {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  &.ltr {
+    direction: ltr;
+  }
+
+  &.ltr-font {
+    font-feature-settings: initial;
+  }
+}
+
+textarea.input-field {
+  resize: none;
+  padding-block: 12px;
+  line-height: var(--third-line-height);
+}
+
+input.input-field {
+  height: var(--input-height);
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.input-field {
+  text-align: start;
+  width: 100%;
+  display: block;
+  background-color: var(--surface-first);
+  color: var(--on-surface-first);
+  border-radius: var(--third-radius);
+  font-size: var(--title-font-size);
+  font-variation-settings: var(--regular-font-weight);
+  padding-inline-start: calc(var(--input-height) / 4);
+  padding-inline-end: calc(var(--input-height) / 4);
+  transition: all var(--first-transition), min-height 0s, max-height 0s, height 0s;
+
+  &::placeholder {
+    color: var(--on-surface-third);
+    opacity: 0;
+    transition: opacity var(--first-transition);
+  }
+
+  &.empty-label {
+    &::placeholder {
+      opacity: 1;
+    }
+  }
+
+  &.have-icon {
+    padding-inline-start: calc(var(--input-height) / 4 + var(--input-height) / 2 + var(--input-height) / 4);
+  }
+
+  &.have-end-el {
+    padding-inline-end: calc(var(--input-height) / 4 + var(--input-height) / 2 + var(--input-height) / 4);
+  }
+
+  &:not(:placeholder-shown), &:focus {
+    &::placeholder {
+      opacity: 1;
+    }
+
+    + .input-icons {
+      .input-label-title {
+        top: -8px;
+        inset-inline-start: calc(var(--input-height) / 4);
+        padding-inline: 4px;
+        height: 16px;
+        font-size: var(--small-font-size);
+
+        &:before {
+          background-color: var(--surface-first);
+        }
+      }
+    }
+  }
+
+  &:not(:placeholder-shown) {
+    + .input-icons {
+      .input-label-title {
+        color: var(--on-surface-first);
+      }
+    }
+  }
+
+  &:focus {
+    + .input-icons {
+      .input-label-title {
+        color: var(--primary-color);
+      }
+    }
+  }
+
+  &.error {
+  }
+
+  &.success {
+  }
+}
+
+.input-label-title {
+  direction: var(--language-direction);
+  font-variation-settings: var(--regular-font-weight);
+  color: var(--on-surface-third);
+  font-size: var(--title-font-size);
+  position: absolute;
+  top: 0;
+  inset-inline-start: calc(var(--input-height) / 4);
+  height: var(--input-height);
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  transition: all var(--first-transition);
+
+  &.have-icon {
+    inset-inline-start: calc(var(--input-height) / 4 + var(--input-height) / 2 + var(--input-height) / 4);
+  }
+
+  &.error {
+    color: var(--error-color) !important;
+  }
+
+  &.success {
+    color: var(--success-color) !important;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: transparent;
+    top: 8px;
+    inset-inline-start: 0;
+    pointer-events: none;
+    transition: background-color var(--first-transition);
+  }
+}
+
+.input-label-title-inner {
+  position: relative;
+}
+
+.input-label-icon {
+  position: absolute;
+  inset-inline-start: calc(var(--input-height) / 4);
+  top: calc(var(--input-height) / 4);
+  width: calc(var(--input-height) / 2);
+  height: calc(var(--input-height) / 2);
+  pointer-events: none;
+  fill: var(--on-surface-third);
+  transition: fill var(--first-transition);
+
+  &.error {
+    fill: var(--error-color) !important;
+  }
+
+  &.success {
+    fill: var(--success-color) !important;
+  }
+}
+
+.input-label-end {
+  display: flex;
+  position: absolute;
+  inset-inline-end: 0;
+  top: 0;
+  width: var(--input-height);
+  height: var(--input-height);
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--third-radius);
+  transform: scale(1);
+  transition: transform var(--first-transition);
+
+  &.hide {
+    transform: scale(0);
+    pointer-events: none;
+  }
+}
+
+.input-label-end-icon {
+  width: 48%;
+  height: 48%;
+  fill: var(--on-surface-third);
+}

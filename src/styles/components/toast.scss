@@ -1,0 +1,110 @@
+body:has(.desktop-modal) {
+  @include desktop-media {
+    .toast-container {
+      top: 24px;
+    }
+  }
+}
+
+.toast-container {
+  position: fixed;
+  max-height: calc(var(--min-full-height) - 32px);
+  overflow: clip;
+  margin-inline-start: auto;
+  z-index: var(--toast-z-index);
+  inset-inline: 0;
+  view-transition-name: toast;
+  transition: top var(--first-transition);
+
+  @include mobile-media {
+    top: calc(16px + var(--top-env-padding));
+  }
+
+  @include desktop-media {
+    top: calc(8px + var(--desktop-top-page-padding));
+  }
+}
+
+.toast-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  border-radius: var(--third-radius);
+  background-color: var(--on-surface-first);
+  overflow: clip;
+  user-select: none;
+  gap: 12px;
+  margin-inline: auto;
+
+  @include desktop-media {
+    width: fit-content;
+    max-width: calc(var(--first-max-page-width) - 2 * var(--first-solid-padding));
+  }
+  @include mobile-media {
+    width: calc(var(--first-max-page-width) - 2 * var(--first-solid-padding));
+  }
+}
+
+.toast-item-message-icon {
+  margin-inline-start: 16px;
+  margin-top: 12px;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+
+  &.SUCCESS {
+    fill: var(--success-color);
+  }
+
+  &.INFO {
+    fill: var(--info-color);
+  }
+
+  &.WARNING {
+    fill: var(--warning-color);
+  }
+
+  &.FAIL {
+    fill: var(--error-color);
+  }
+}
+
+.toast-item-message {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 13px;
+  padding-bottom: 12px;
+}
+
+.toast-item-message-title {
+  color: var(--surface-fourth);
+  font-variation-settings: var(--medium-font-weight);
+
+  @include desktop-media {
+    font-size: var(--large-font-size);
+  }
+  @include mobile-media {
+    font-size: var(--title-font-size);
+  }
+}
+
+.toast-item-message-desc {
+  color: var(--surface-second);
+  font-variation-settings: var(--regular-font-weight);
+
+  @include desktop-media {
+    font-size: var(--title-font-size);
+  }
+  @include mobile-media {
+    font-size: var(--small-font-size);
+  }
+}
+
+.toast-item-progress {
+  position: absolute;
+  bottom: 0;
+  inset-inline-start: 0;
+  height: 0;
+}

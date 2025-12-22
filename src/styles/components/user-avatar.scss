@@ -1,0 +1,114 @@
+@mixin avatar-xxx-large {
+  min-width: 80px;
+  width: 80px;
+  height: 80px;
+}
+
+@mixin avatar-xx-large {
+  min-width: 64px;
+  width: 64px;
+  height: 64px;
+}
+
+@mixin avatar-x-large {
+  min-width: 56px;
+  width: 56px;
+  height: 56px;
+}
+
+@mixin avatar-large {
+  min-width: 48px;
+  width: 48px;
+  height: 48px;
+}
+
+@mixin avatar-medium {
+  min-width: 32px;
+  width: 32px;
+  height: 32px;
+}
+
+@mixin avatar-small {
+  min-width: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+
+.user-avatar {
+  border-radius: 50%;
+
+  &.text-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: var(--small-font-size);
+    font-variation-settings: var(--bold-font-weight);
+  }
+
+  &.user-svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--surface-third);
+    border: 1px solid var(--outline-third);
+
+    svg {
+      width: 60%;
+      max-width: 32px;
+    }
+  }
+
+  @include desktop-media {
+    &.desktop-xxx-large {
+      @include avatar-xxx-large;
+    }
+
+    &.desktop-xx-large {
+      @include avatar-xx-large;
+    }
+
+    &.desktop-x-large {
+      @include avatar-x-large;
+    }
+
+    &.desktop-large {
+      @include avatar-large;
+    }
+
+    &.desktop-medium {
+      @include avatar-medium;
+    }
+
+    &.desktop-small {
+      @include avatar-small;
+    }
+  }
+
+  @include mobile-media {
+    &.mobile-xxx-large {
+      @include avatar-xxx-large;
+    }
+
+    &.mobile-xx-large {
+      @include avatar-xx-large;
+    }
+
+    &.mobile-x-large {
+      @include avatar-x-large;
+    }
+
+    &.mobile-large {
+      @include avatar-large;
+    }
+
+    &.mobile-medium {
+      @include avatar-medium;
+    }
+
+    &.mobile-small {
+      @include avatar-small;
+    }
+  }
+}

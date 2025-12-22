@@ -1,0 +1,206 @@
+:root {
+  color-scheme: light dark;
+
+  &::view-transition {
+    pointer-events: none;
+  }
+
+  --full-width: 100dvw;
+  --max-full-height: 100lvh;
+  --dynamic-full-height: 100dvh;
+  --min-full-height: 100svh;
+  @supports not (height: 100svh) {
+    --full-width: 100vw;
+    --max-full-height: 100vh;
+    --dynamic-full-height: 100vh;
+    --min-full-height: 100vh;
+  }
+
+  --language-direction: rtl;
+
+  --mobile-modal-line-height: 20px;
+
+  --top-env-padding: calc(env(safe-area-inset-top));
+  --bottom-env-padding: calc(min(env(safe-area-inset-bottom), 24px));
+
+  @include mobile-media {
+    &:has(.dev) {
+      --top-env-padding: 50px;
+      --bottom-env-padding: 20px;
+    }
+  }
+
+  --mobile-header-height: calc(var(--top-env-padding) + 56px);
+
+  --desktop-header-height: 64px;
+
+  --mobile-navbar-height-dynamic: var(--mobile-navbar-height);
+  --mobile-navbar-height: 64px;
+
+  @include desktop-media {
+    --mobile-bottom-page-padding: 0px;
+  }
+  @include mobile-media {
+    --mobile-bottom-page-padding: calc(var(--mobile-navbar-height-dynamic) + var(--bottom-env-padding));
+  }
+
+  @include desktop-media {
+    --desktop-top-page-padding: var(--desktop-header-height);
+  }
+  @include mobile-media {
+    --desktop-top-page-padding: 0px;
+  }
+
+  --full-modal-height: calc(var(--dynamic-full-height) - var(--top-env-padding) - var(--mobile-modal-line-height) - var(--bottom-env-padding));
+
+  --desktop-modal-width: 520px;
+
+  @include desktop-media {
+    --first-solid-padding: calc(0.05 * var(--full-width));
+  }
+  @include mobile-media {
+    --first-solid-padding: 18px;
+  }
+  --second-solid-padding: 24px;
+
+  @include desktop-media {
+    --grid-card-gap: 24px;
+  }
+  @include mobile-media {
+    --grid-card-gap: 16px;
+  }
+
+  --mobile-grid-card-width: min(284px, var(--full-width) - (2 * var(--grid-card-gap)) - (2 * var(--first-solid-padding)));
+
+  --x-small-btn-input-height: 24px;
+  --small-btn-input-height: 32px;
+  --medium-btn-input-height: 40px;
+  --large-btn-input-height: 48px;
+  --x-large-btn-input-height: 56px;
+
+  --first-max-page-width: min(1400px + 2 * var(--first-solid-padding), var(--full-width));
+  --second-max-page-width: min(680px + 2 * var(--first-solid-padding), var(--full-width));
+  --third-max-page-width: min(1200px + 2 * var(--first-solid-padding), var(--full-width));
+
+  --first-line-height: 20px;
+  --second-line-height: 24px;
+  --third-line-height: 28px;
+  --forth-line-height: 32px;
+  --fifth-line-height: 48px;
+  --six-line-height: 56px;
+
+  --default-z-index: 1;
+  --header-z-index: 3;
+  --modal-z-index: 4;
+  --toast-z-index: 5;
+
+  --first-transition-time: 250ms;
+  //--first-transition-method: cubic-bezier(.8, -.3, .2, 1.3);
+  --first-transition-method: ease;
+  --first-transition: var(--first-transition-method) var(--first-transition-time);
+
+  --second-transition-time: 400ms;
+  --second-transition-method: ease-in-out;
+  --second-transition: var(--second-transition-method) var(--second-transition-time);
+
+  @include desktop-media {
+    --footer-gap: 64px;
+  }
+  @include mobile-media {
+    --footer-gap: 24px;
+  }
+
+  --primary-color: var(--neutral-10-color);
+  --on-primary-color: var(--neutral-100-color);
+  --primary-container-color: #1B292C;
+
+  --surface-container-first: var(--neutral-100-color);
+
+  --on-surface-first: var(--neutral-20-color);
+  --on-surface-second: var(--neutral-40-color);
+  --on-surface-third: var(--neutral-60-color);
+
+  --outline-first: var(--neutral-80-color);
+  --outline-second: var(--neutral-90-color);
+  --outline-third: var(--neutral-95-color);
+
+  --disabled-first: var(--neutral-70-color);
+  --disabled-second: var(--neutral-90-color);
+
+  --surface-first: var(--neutral-90-color);
+  --surface-second: var(--neutral-95-color);
+  --surface-third: var(--neutral-98-color);
+  --surface-fourth: var(--neutral-100-color);
+
+  --skeleton-base64: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxMDAgMTAwJz4KICAgIDxkZWZzPgogICAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZyI+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiNFMkUyRTkiIHN0b3Atb3BhY2l0eT0iMCIgb2Zmc2V0PSIwJSIvPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjOEY5MDk3IiBzdG9wLW9wYWNpdHk9IjAuNCIgb2Zmc2V0PSI2MCUiLz4KICAgICAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iI0UyRTJFOSIgc3RvcC1vcGFjaXR5PSIwIiBvZmZzZXQ9IjEwMCUiLz4KICAgICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPC9kZWZzPgogICAgPHJlY3QgZmlsbD0iI0UyRTJFOSIgd2lkdGg9JzEwMCcgaGVpZ2h0PScxMDAnIHg9JzAnIHk9JzAnLz4KICAgIDxyZWN0IGZpbGw9InVybCgjZykiIHdpZHRoPScxMDAnIGhlaWdodD0nMTAwJyB4PScwJyB5PScwJz4KICAgICAgICA8YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSd4JyBkdXI9JzEuNCcgdmFsdWVzPScyMDA7LTEwMDsnIHJlcGVhdENvdW50PSdpbmRlZmluaXRlJy8+CiAgICA8L3JlY3Q+Cjwvc3ZnPg==");
+  --first-modal-status-color: #7F7F7F;
+
+  --neutral-100-color: #FFFFFF;
+  --neutral-99-color: #FCFCFD;
+  --neutral-98-color: #F9F9FB;
+  --neutral-95-color: #F2F2F5;
+  --neutral-90-color: #E8E8ED;
+  --neutral-80-color: #C5C6CD;
+  --neutral-70-color: #AAABB1;
+  --neutral-60-color: #8F9097;
+  --neutral-50-color: #75777D;
+  --neutral-40-color: #5D5E64;
+  --neutral-35-color: #515258;
+  --neutral-30-color: #45474C;
+  --neutral-25-color: #393B41;
+  --neutral-20-color: #2E3036;
+  --neutral-15-color: #24262B;
+  --neutral-10-color: #191C20;
+  --neutral-5-color: #0F1116;
+  --neutral-0-color: #000000;
+
+  --white: #FFFFFF;
+  --black: #000000;
+
+  --ai-color-first: #D83EF7;
+  --ai-color-second: #1757F9;
+
+  --success-container-color: #EBFFE6;
+
+  --success-color: #00AB50;
+
+  --info-color: #0075E5;
+
+  --warning-color: #FFC043;
+
+  --error-color: #DE3730;
+
+  --first-modal-background-color: rgba(0, 0, 0, 0.5);
+
+  --first-dark-background: rgba(0, 0, 0, 0.5);
+
+  --product-img-ratio: 1.5;
+  --media-content-ratio: 0.7;
+
+  --first-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.10);
+  --second-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --third-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+
+  --first-radius: 4px;
+  --second-radius: 6px;
+  --third-radius: 8px;
+  --forth-radius: 12px;
+  --fifth-radius: 16px;
+  --sixth-radius: 20px;
+  --seven-radius: 24px;
+  --eight-radius: 32px;
+  --nine-radius: 40px;
+
+  --tiny-font-size: 10px;
+  --small-font-size: 12px;
+  --title-font-size: 14px;
+  --large-font-size: 16px;
+  --big-font-size: 18px;
+  --huge-font-size: 20px;
+  --giant-font-size: 24px;
+
+  --regular-font-weight: "wght" 400;
+  --medium-font-weight: "wght" 500;
+  --bold-font-weight: "wght" 700;
+  --extrabold-font-weight: "wght" 800;
+}

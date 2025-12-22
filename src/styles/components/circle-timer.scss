@@ -1,0 +1,17 @@
+.circle-timer {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transform-origin: center center;
+  transform: rotate(-90deg);
+}
+
+.circle-timer-path {
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  transition: var(--first-transition);
+
+  &.transparent {
+    opacity: 0.25;
+  }
+}

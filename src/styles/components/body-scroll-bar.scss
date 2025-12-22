@@ -1,0 +1,18 @@
+.body-scroll-bar {
+  @include desktop-media {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    inset-inline-start: 2px;
+    width: 3px;
+    border-radius: 3px;
+    background-color: var(--on-surface-third);
+    z-index: var(--toast-z-index);
+    transition: opacity var(--first-transition), height var(--first-transition);
+    opacity: 0.7;
+  }
+
+  @include mobile-media {
+    display: none;
+  }
+}

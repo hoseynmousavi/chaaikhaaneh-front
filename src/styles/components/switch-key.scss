@@ -1,0 +1,37 @@
+.switch-key-btn {
+  position: relative;
+  width: 40px;
+  height: 24px;
+  border-radius: var(--forth-radius);
+  transition: background-color var(--first-transition), border var(--first-transition);
+
+  &:not(.active) {
+    background-color: transparent;
+    border: 1px solid var(--outline-second);
+  }
+
+  &.active {
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+  }
+}
+
+.switch-key-btn-dot {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  transition: background-color var(--first-transition), inset-inline-end var(--first-transition);
+
+  &:not(.active) {
+    background-color: var(--outline-second);
+    inset-inline-end: 3px;
+  }
+
+  &.active {
+    background-color: var(--on-primary-color);
+    inset-inline-end: 19px;
+  }
+}

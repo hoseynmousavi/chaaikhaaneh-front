@@ -1,0 +1,149 @@
+.router-container {
+  width: 100%;
+
+  &:not(.tab-container) {
+    overflow-x: clip;
+  }
+}
+
+:active-view-transition-type(mobile-pushstate) {
+  &::view-transition-old(root) {
+    animation: var(--second-transition-time) var(--second-transition-method) both mobile-push-old;
+  }
+
+  &::view-transition-new(root) {
+    box-shadow: 0 3px 11px rgba(0, 0, 0, 0.2);
+    animation: var(--second-transition-time) var(--second-transition-method) both mobile-push-new;
+  }
+}
+
+@keyframes mobile-push-old {
+  to {
+    transform: translate3d(-60%, 0, 0);
+  }
+}
+
+@keyframes mobile-push-new {
+  from {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+:active-view-transition-type(desktop-pushstate) {
+  &::view-transition-old(root) {
+    animation: var(--second-transition-time) var(--second-transition-method) both desktop-push-old;
+  }
+
+  &::view-transition-new(root) {
+    animation: var(--second-transition-time) var(--second-transition-method) both desktop-push-new;
+  }
+}
+
+@keyframes desktop-push-old {
+  to {
+    opacity: 0;
+    transform: translate3d(-20px, 0, 0);
+  }
+}
+
+@keyframes desktop-push-new {
+  from {
+    opacity: 0;
+    transform: translate3d(20px, 0, 0);
+  }
+}
+
+:active-view-transition-type(mobile-popstate) {
+  &::view-transition-old(root) {
+    animation: var(--second-transition-time) var(--second-transition-method) both mobile-pop-old;
+    z-index: 2;
+    box-shadow: 0 3px 11px rgba(0, 0, 0, 0.2);
+  }
+
+  &::view-transition-new(root) {
+    animation: var(--second-transition-time) var(--second-transition-method) both mobile-pop-new;
+    z-index: 1;
+  }
+}
+
+@keyframes mobile-pop-old {
+  to {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@keyframes mobile-pop-new {
+  from {
+    transform: translate3d(-60%, 0, 0);
+  }
+}
+
+:active-view-transition-type(desktop-popstate) {
+  &::view-transition-old(root) {
+    animation: var(--second-transition-time) var(--second-transition-method) both desktop-pop-old;
+    z-index: 2;
+  }
+
+  &::view-transition-new(root) {
+    animation: var(--second-transition-time) var(--second-transition-method) both desktop-pop-new;
+    z-index: 1;
+  }
+}
+
+@keyframes desktop-pop-old {
+  to {
+    opacity: 0;
+    transform: translate3d(20px, 0, 0);
+  }
+}
+
+@keyframes desktop-pop-new {
+  from {
+    opacity: 0;
+    transform: translate3d(-20px, 0, 0);
+  }
+}
+
+:active-view-transition-type(mobile-desktop-replacestate) {
+  &::view-transition-old(root) {
+    animation: var(--second-transition-time) var(--second-transition-method) both replace-old;
+  }
+
+  &::view-transition-new(root) {
+    animation: var(--second-transition-time) var(--second-transition-method) both replace-new;
+  }
+}
+
+@keyframes replace-old {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes replace-new {
+  from {
+    opacity: 0;
+  }
+}
+
+:active-view-transition-type(router-tab) {
+  &::view-transition-group(root) {
+    animation: none;
+  }
+
+  .router-tab {
+    view-transition-name: router-tab;
+  }
+
+  &::view-transition-group(router-tab) {
+    animation: none !important;
+  }
+
+  &::view-transition-old(router-tab) {
+    animation: 200ms var(--first-transition-method) both replace-old;
+  }
+
+  &::view-transition-new(router-tab) {
+    animation: 200ms var(--first-transition-method) both replace-new;
+  }
+}

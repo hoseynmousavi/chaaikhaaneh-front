@@ -1,0 +1,1 @@
+export const MODAL_DONT_GESTURE = "MODAL_DONT_GESTURE"

@@ -1,0 +1,3 @@
+const AVATAR_COLORS = ["#00BD9D", "#438ED3", "#E53439", "#4BBB45", "#DB5776", "#F78639", "#9133CC", "#C23CDD", "#29AED6", "#A2BA36"]
+
+export default AVATAR_COLORS

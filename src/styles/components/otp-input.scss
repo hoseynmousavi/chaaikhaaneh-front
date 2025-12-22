@@ -1,0 +1,102 @@
+.otp-input {
+  position: relative;
+  direction: ltr;
+  width: 100%;
+  margin-block: 32px;
+}
+
+.otp-input-field {
+  height: 56px;
+  caret-color: transparent;
+  width: 100%;
+  display: block;
+  color: var(--on-surface-first);
+  font-size: var(--big-font-size);
+  font-variation-settings: var(--bold-font-weight);
+  letter-spacing: -20px;
+
+  &:focus {
+    + .otp-input-box {
+      .otp-input-box-item {
+        &.ready {
+          border-bottom: 1px solid var(--primary-color);
+
+          &:after {
+            content: "|";
+            animation: caret ease 1s infinite;
+          }
+        }
+
+        &.fill {
+          &:last-child {
+            &:after {
+              position: absolute;
+              margin-inline-start: 20px;
+              content: "|";
+              animation: caret ease 1s infinite;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.otp-input-box {
+  padding: 8px 16px;
+  border: 1px solid var(--outline-second);
+  border-radius: var(--third-radius);
+  background-color: var(--surface-fourth);
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  gap: 8px;
+  transition: border var(--first-transition);
+
+  &.error {
+    border: 1px solid var(--error-color);
+  }
+}
+
+.otp-input-box-item {
+  flex-grow: 1;
+  width: 50px;
+  height: 40px;
+  border-bottom: 1px solid var(--outline-second);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--on-surface-first);
+  font-size: var(--big-font-size);
+  font-variation-settings: var(--bold-font-weight);
+  transition: all var(--first-transition);
+
+  &.disabled {
+    &:last-child {
+      &:after {
+        display: none;
+      }
+    }
+  }
+
+  &.error {
+    border-bottom: 1px solid var(--error-color) !important;
+    color: var(--error-color);
+  }
+}
+
+@keyframes caret {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

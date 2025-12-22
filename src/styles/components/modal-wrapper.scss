@@ -1,0 +1,58 @@
+.modal-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-height: inherit;
+  overflow-y: inherit;
+}
+
+.modal-wrapper-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--surface-second);
+  transition: margin var(--first-transition), padding var(--first-transition);
+  gap: 8px;
+
+  @include desktop-media {
+    margin: 0 24px;
+    padding: 24px 0;
+
+    &.is-pinned {
+      margin: 0;
+      padding: 24px;
+    }
+  }
+
+  @include mobile-media {
+    margin: 0 16px;
+    padding: 16px 0;
+
+    &.is-pinned {
+      margin: 0;
+      padding: 16px;
+    }
+  }
+}
+
+.modal-wrapper-header-icon {
+  width: 24px;
+  height: 24px;
+  fill: var(--on-surface-third);
+}
+
+.modal-wrapper-header-title {
+  font-variation-settings: var(--bold-font-weight);
+  flex: 1;
+
+  @include desktop-media {
+    font-size: var(--huge-font-size);
+  }
+  @include mobile-media {
+    font-size: var(--large-font-size);
+  }
+}
+
+.modal-wrapper-content {
+  flex-grow: 1;
+  overflow-y: inherit;
+}

@@ -1,0 +1,80 @@
+{
+	"$schema": "https://biomejs.dev/schemas/2.3.8/schema.json",
+	"vcs": {
+		"enabled": false,
+		"clientKind": "git",
+		"useIgnoreFile": false
+	},
+	"files": {
+		"ignoreUnknown": false
+	},
+	"formatter": {
+		"enabled": true,
+		"indentStyle": "tab"
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"a11y": {
+				"noSvgWithoutTitle": "off",
+				"useMediaCaption": "off",
+				"noAutofocus": "off"
+			},
+			"suspicious": {
+				"noControlCharactersInRegex": "off",
+				"noArrayIndexKey": "off",
+				"noExplicitAny": "off",
+				"noDocumentCookie": "off"
+			},
+			"complexity": {
+				"noBannedTypes": "off",
+				"noArguments": "off",
+				"useLiteralKeys": "off"
+			},
+			"correctness": {
+				"useExhaustiveDependencies": "off"
+			},
+			"performance": {
+				"noAccumulatingSpread": "off"
+			},
+			"style": {
+				"noNonNullAssertion": "off"
+			},
+			"security": {
+				"noDangerouslySetInnerHtml": "off"
+			}
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"lineWidth": 200,
+			"quoteStyle": "double",
+			"arrowParentheses": "asNeeded",
+			"bracketSameLine": false,
+			"bracketSpacing": false,
+			"jsxQuoteStyle": "double",
+			"quoteProperties": "asNeeded",
+			"semicolons": "asNeeded",
+			"trailingCommas": "all",
+			"expand": "auto",
+			"operatorLinebreak": "after"
+		}
+	},
+	"assist": {
+		"enabled": true,
+		"actions": {
+			"source": {
+				"organizeImports": "on"
+			}
+		}
+	},
+	"css": {
+		"formatter": {
+			"enabled": true
+		},
+		"linter": {
+			"enabled": true
+		}
+	}
+}

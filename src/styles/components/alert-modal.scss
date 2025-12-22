@@ -1,0 +1,42 @@
+.alert-modal {
+  width: 420px;
+  max-width: calc(100% - 2 * var(--first-solid-padding));
+  padding: 24px;
+}
+
+.alert-modal-header {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.alert-modal-header-icon {
+  width: 48px;
+  height: 48px;
+}
+
+.alert-modal-title {
+  font-variation-settings: var(--extrabold-font-weight);
+  font-size: var(--large-font-size);
+  margin-top: 12px;
+  text-align: center;
+  color: var(--on-surface-first);
+}
+
+.alert-modal-desc {
+  font-variation-settings: var(--regular-font-weight);
+  font-size: var(--title-font-size);
+  color: var(--on-surface-second);
+  margin-top: 12px;
+  line-height: var(--first-line-height);
+  white-space: pre-line;
+  text-align: center;
+}
+
+.alert-modal-submit {
+  margin-top: 24px;
+}
+
+.alert-modal-cancel {
+  margin-top: 12px;
+}

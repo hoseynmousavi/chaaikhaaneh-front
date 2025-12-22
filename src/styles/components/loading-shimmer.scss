@@ -1,0 +1,25 @@
+.shimmer {
+  position: absolute;
+  inset: -1px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: inherit;
+  pointer-events: none;
+  overflow: clip;
+  z-index: var(--default-z-index);
+
+  &:after {
+    content: '';
+    position: absolute;
+    inset-inline-start: calc(-1 * max(60%, 60px));
+    inset-block: 0;
+    width: max(60%, 60px);
+    background: linear-gradient(to left, transparent, rgba(255, 255, 255, 0.3) 40%, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.3) 60%, transparent);
+    animation: shimmer linear 1s infinite;
+  }
+}
+
+@keyframes shimmer {
+  to {
+    inset-inline-start: 170%;
+  }
+}

@@ -1,0 +1,8 @@
+.auto-height {
+  overflow-y: clip;
+  overflow-x: visible;
+}
+
+.auto-height-content {
+  transition: height var(--first-transition);
+}

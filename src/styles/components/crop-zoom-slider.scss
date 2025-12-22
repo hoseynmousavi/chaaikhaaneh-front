@@ -1,0 +1,59 @@
+.crop-zoom-slider {
+  @include desktop-media {
+    display: flex;
+    align-items: center;
+  }
+  @include mobile-media {
+    display: none;
+  }
+}
+
+.crop-zoom-slider-input {
+  width: 100%;
+  position: relative;
+  height: 2px;
+  border-radius: var(--first-radius);
+  direction: ltr;
+}
+
+.crop-zoom-slider-progress {
+  background-color: var(--primary-color);
+  height: 100%;
+  inset-inline-start: 0;
+  top: 0;
+  position: absolute;
+  border-radius: var(--first-radius);
+  pointer-events: none;
+}
+
+.crop-zoom-slider-input-main {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--first-radius);
+  background-color: var(--outline-second);
+  cursor: pointer;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--surface-fourth);
+    border: 1px solid var(--outline-second);
+    cursor: pointer;
+    z-index: var(--default-z-index);
+    position: relative;
+    box-shadow: var(--third-shadow);
+  }
+
+  &::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    cursor: pointer;
+    border: none;
+  }
+}

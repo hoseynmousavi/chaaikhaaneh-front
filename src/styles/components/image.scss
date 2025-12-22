@@ -1,0 +1,24 @@
+.image-loading-main {
+  object-fit: cover;
+
+  @include skeleton {
+    font-size: 0;
+  }
+
+  &.load-fail {
+    background-color: var(--surface-second);
+    background: var(--surface-second);
+    object-fit: contain;
+  }
+}
+
+.image-show-picture {
+  animation: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  max-height: initial !important;
+  max-width: initial !important;
+  position: fixed !important;
+  z-index: var(--modal-z-index) !important;
+  right: auto !important;
+}

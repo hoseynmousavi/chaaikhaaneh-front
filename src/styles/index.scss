@@ -1,0 +1,192 @@
+@import "common/media-mixin";
+@import "common/skeleton-mixin";
+@import "common/variables";
+@import "common/animations";
+
+@import "components/loading-shimmer";
+@import "components/body-scroll-bar";
+@import "components/router";
+@import "components/image";
+@import "components/material";
+@import "components/btn";
+@import "components/loading-wrapper";
+@import "components/loader";
+@import "components/radio-button";
+@import "components/checkbox";
+@import "components/input";
+@import "components/auto-height";
+@import "components/user-avatar";
+@import "components/modal";
+@import "components/modal-wrapper";
+@import "components/switch-key";
+@import "components/alert-modal";
+@import "components/circle-timer";
+@import "components/toast";
+@import "components/show-validation";
+@import "components/crop";
+@import "components/crop-zoom-slider";
+
+@import "pages/home";
+
+body {
+  &.tab-animating {
+  }
+}
+
+html, body {
+  background-color: var(--surface-container-first);
+}
+
+body {
+  direction: var(--language-direction);
+  padding: 0;
+  margin: 0;
+  color: var(--on-surface-first);
+  font-size: var(--small-font-size);
+  font-variation-settings: var(--medium-font-weight);
+  font-family: my-font, serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  touch-action: auto;
+  overscroll-behavior: auto;
+  font-feature-settings: "ss02";
+  overflow-x: clip;
+  overflow-y: auto;
+
+  @media (display-mode: standalone) {
+    --full-width: 100vw;
+    --max-full-height: 100vh;
+    --dynamic-full-height: 100vh;
+    --min-full-height: 100vh;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
+
+* {
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: normal;
+  font-variation-settings: inherit;
+  text-align: inherit;
+  background-color: transparent;
+  border: none;
+  touch-action: inherit;
+  overscroll-behavior: inherit;
+  font-feature-settings: inherit;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::-webkit-scrollbar {
+    border-radius: 4px;
+    width: 4px;
+    height: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--outline-second);
+    border-radius: 4px;
+
+    &:hover {
+      background-color: var(--outline-second)
+    }
+  }
+}
+
+body.dev {
+  color: red;
+  font-size: 64px;
+  font-variation-settings: "wght" 100;
+
+  .undefined {
+    background-color: red;
+    outline: 4px solid blue;
+  }
+
+  --primary-color: #3e90ff;
+
+  .dev-simulate {
+    @include desktop-media {
+      display: none;
+    }
+  }
+}
+
+svg, img {
+  content-visibility: auto;
+}
+
+img {
+  display: block;
+  object-fit: cover;
+  -webkit-user-drag: none;
+}
+
+video {
+  display: block;
+  object-fit: contain;
+  -webkit-user-drag: none;
+}
+
+svg, picture {
+  display: block;
+}
+
+input, textarea {
+  caret-color: var(--primary-color);
+}
+
+a {
+  text-decoration: none;
+  -webkit-user-drag: none;
+}
+
+::-moz-selection {
+  color: var(--on-primary-color);
+  background-color: var(--primary-color);
+}
+
+::selection {
+  color: var(--on-primary-color);
+  background-color: var(--primary-color);
+}
+
+.hide-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
+
+.hide-mobile {
+  @include mobile-media {
+    display: none;
+  }
+}
+
+.hide-desktop {
+  @include desktop-media {
+    display: none;
+  }
+}

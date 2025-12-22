@@ -1,0 +1,39 @@
+.validation-err {
+  direction: rtl;
+  font-variation-settings: var(--regular-font-weight);
+  font-size: var(--small-font-size);
+  overflow: clip;
+  height: 0;
+  opacity: 0;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: start;
+  width: 100%;
+  transition: height var(--first-transition), opacity var(--first-transition);
+
+  &.error {
+    color: var(--error-color);
+  }
+
+  &.success {
+    color: var(--success-color);
+  }
+
+  &.show {
+    opacity: 1;
+    height: 40px;
+  }
+}
+
+.validation-err-icon {
+  margin-top: -1px;
+  width: 16px;
+  height: 16px;
+  fill: var(--error-color);
+}
+
+.color-error {
+  color: var(--error-color);
+}

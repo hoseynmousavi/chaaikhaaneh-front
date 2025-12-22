@@ -1,0 +1,29 @@
+@mixin desktop-media {
+  @media (width >= 660px) and (height >= 500px) {
+    @content;
+  }
+}
+
+@mixin tablet-media {
+  @media (width <= 1366px) {
+    @content;
+  }
+}
+
+@mixin mobile-media {
+  @media (width < 660px), (height < 500px) {
+    @content;
+  }
+}
+
+@mixin desktop-container {
+  @container season-episodes (min-width: 660px) {
+    @content;
+  }
+}
+
+@mixin mobile-container {
+  @container season-episodes (max-width: 659px) {
+    @content;
+  }
+}
