@@ -1,2 +1,2 @@
-export const APP_NAME_FA = "ایوان"
-export const APP_NAME_EN = "A1"
+export const APP_NAME_FA = "چای‌خانه"
+export const APP_NAME_EN = "ChaiKhane"
