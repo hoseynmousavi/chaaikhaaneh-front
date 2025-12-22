@@ -18,6 +18,8 @@ if (process.env.NODE_ENV === "production") {
 	})
 }
 
+const noCacheFiles = ["service-worker.js", "asset-manifest.json"]
+
 function fileRouter(app: Express) {
 	app.route("/static/*file").get((req: ExpressRequestType, res: ExpressResponseType) => {
 		setCacheHeader({res, cache: "public, max-age=2592000, immutable"})
@@ -38,16 +40,22 @@ function fileRouter(app: Express) {
 		const {file} = req.params
 		if (process.env.NODE_ENV === "production") {
 			if (files.indexOf(file) !== -1) {
-				const shouldNotCache = file === "service-worker.js" || file === "asset-manifest.json"
-				setCacheHeader({res, cache: shouldNotCache ? "max-age=0" : "public, max-age=604800, stale-while-revalidate=86400"})
+				const shouldNotCache = noCacheFiles.indexOf(file) !== -1
+				setCacheHeader({
+					res,
+					cache: shouldNotCache ? "max-age=0" : "public, max-age=604800, stale-while-revalidate=86400",
+				})
 				res.sendFile(path.resolve(`${buildPath}/${file}`))
 			} else {
 				next()
 			}
 		} else {
 			const filePath = `${buildPath}/${file}`
+			const filePublicPath = `${devPublicOrProductionBuildPath}/${file}`
 			if (fs.existsSync(filePath)) {
 				res.sendFile(path.resolve(filePath))
+			} else if (fs.existsSync(filePublicPath)) {
+				res.sendFile(path.resolve(filePublicPath))
 			} else {
 				next()
 			}

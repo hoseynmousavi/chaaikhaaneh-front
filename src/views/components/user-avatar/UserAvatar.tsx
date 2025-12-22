@@ -19,9 +19,9 @@ interface Props {
 }
 
 function UserAvatar(props: Props) {
-	const {user,  className = "", zoomOnClick, desktopSize, mobileSize, resize, isSkeleton} = props
-	const name = user? getUserName({user}) : ""
-	const src = user ? user.avatar  : undefined
+	const {user, className = "", zoomOnClick, desktopSize, mobileSize, resize, isSkeleton} = props
+	const name = user ? getUserName({user}) : ""
+	const src = user ? user.avatar : undefined
 	const desktopSizeClass = `desktop-${desktopSize || mobileSize || "large"}`
 	const mobileSizeClass = `mobile-${mobileSize || desktopSize || "large"}`
 	const classNames = `${className} ${desktopSizeClass} ${mobileSizeClass}`
