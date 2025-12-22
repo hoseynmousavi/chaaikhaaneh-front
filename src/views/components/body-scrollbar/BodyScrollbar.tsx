@@ -13,7 +13,7 @@ function BodyScrollbar() {
 		if (scrollRef.current) {
 			scrollRef.current.style.removeProperty("opacity")
 			scrollRef.current.style.height = `${(clientHeight / scrollHeight) * 100}%`
-			scrollRef.current.style.transform = `translate3d(0, ${`${(scrollTop / scrollHeight) * 100}dvh`}, 0)`
+			scrollRef.current.style.transform = `translate3d(0, ${(scrollTop / scrollHeight) * 100}dvh, 0)`
 		}
 
 		debounce({

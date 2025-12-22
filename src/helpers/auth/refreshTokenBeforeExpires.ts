@@ -1,5 +1,4 @@
 import COOKIE_VALUES from "constant/storage/COOKIE_VALUES"
-import tokenRefreshedManager from "helpers/auth/tokenRefreshedManager"
 import nothing from "helpers/general/nothing"
 import cookieHelper from "helpers/storage/cookieHelper"
 import handleRefreshingRequests from "request/handleRefreshingRequests"
@@ -24,7 +23,6 @@ function refresh() {
 		.goForRefresh()
 		.then(() => {
 			console.log("Token Refreshed")
-			tokenRefreshedManager.tokenRefreshed()
 		})
 		.catch(nothing)
 }
