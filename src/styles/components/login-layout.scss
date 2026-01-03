@@ -1,0 +1,105 @@
+.login {
+  min-height: var(--min-full-height);
+  display: flex;
+  flex-direction: column;
+
+  @include desktop-media {
+    align-items: center;
+    justify-content: center;
+    padding-top: 32px;
+    padding-bottom: calc(32px + 24px + 40px); // cause of, box should be center, not whole page
+    gap: 24px;
+  }
+
+  @include mobile-media {
+    padding-top: calc(var(--top-env-padding) + 32px);
+  }
+}
+
+.login-logo {
+  @include desktop-media {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  @include mobile-media {
+    display: none;
+  }
+}
+
+.login-logo-title {
+  color: var(--primary-color);
+  font-size: var(--huge-font-size);
+  font-variation-settings: var(--extrabold-font-weight);
+}
+
+.login-logo-icon {
+  height: 40px;
+  width: 40px;
+  fill: var(--primary-color);
+}
+
+.login-box {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include desktop-media {
+    border-radius: var(--fifth-radius);
+    width: 440px;
+    padding: 40px;
+    border: 1px solid var(--outline-second);
+  }
+
+  @include mobile-media {
+    width: 100%;
+    padding-inline: var(--second-solid-padding);
+  }
+}
+
+.login-box-back {
+  align-self: flex-start;
+  margin-top: -12px;
+}
+
+.login-box-icon {
+  @include desktop-media {
+    width: 72px;
+    height: 72px;
+  }
+  @include mobile-media {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+.login-box-title {
+  font-variation-settings: var(--bold-font-weight);
+  color: var(--on-surface-first);
+  text-align: center;
+
+  @include desktop-media {
+    margin-top: 24px;
+    font-size: var(--huge-font-size);
+  }
+  @include mobile-media {
+    margin-top: 20px;
+    font-size: var(--big-font-size);
+  }
+}
+
+.login-box-desc {
+  font-variation-settings: var(--regular-font-weight);
+  color: var(--on-surface-third);
+  text-align: center;
+
+  @include desktop-media {
+    margin-top: 12px;
+    font-size: var(--large-font-size);
+  }
+  @include mobile-media {
+    margin-top: 8px;
+    font-size: var(--title-font-size);
+  }
+}

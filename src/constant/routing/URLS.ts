@@ -14,6 +14,8 @@ const URLS = {
 		routes: {
 			entryForServiceWorker: "/index.html",
 
+			login: "/login",
+
 			home: "/",
 		},
 	},

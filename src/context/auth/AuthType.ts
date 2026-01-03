@@ -1,12 +1,8 @@
 export interface UserType {
-	nickname: string
-	mobile_number: string
-	avatar: string | null
-	slug: string
-}
-
-export interface UpdateUserType extends Omit<UserType, "avatar" | "mobile_number"> {
-	avatar: File
+	id: string
+	username: string
+	name: string
+	phone_number: string
 }
 
 export interface AuthStateType {

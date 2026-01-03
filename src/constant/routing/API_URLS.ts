@@ -1,8 +1,7 @@
 const API_URLS = {
-	requestOtp: "v1/auth/otp/request",
-	verifyOtp: "v1/auth/otp/verify",
-	refreshToken: "v1/auth/login/refresh",
-	profile: "v1/auth/profile",
+	refreshToken: "v1/user/token/refresh",
+	profile: "v1/user/info",
+	login: "v1/user/login",
 }
 
 export default API_URLS

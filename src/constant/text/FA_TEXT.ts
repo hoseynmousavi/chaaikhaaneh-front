@@ -1,8 +1,11 @@
-const FA_TEXT = {
-	otpTimerBtn: (time: string) => `${time} تا ارسال مجدد کد`,
-	otpTimerSend: "دریافت کد جدید",
+import {APP_NAME_FA} from "constant/text/APP_NAME_FA"
 
-	crop: "ویرایش تصویر",
+const FA_TEXT = {
+	loginSignup: `ورود در ${APP_NAME_FA}`,
+	loginSignupDesc: "برای ادامه نام کاربری و رمز عبور خود را وارد کنید.",
+
+	username: "نام کاربری",
+	password: "رمز عبور",
 
 	cancel: "انصراف",
 	confirm: "تایید",

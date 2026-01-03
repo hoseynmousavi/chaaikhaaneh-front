@@ -1,13 +1,11 @@
 import App from "App"
 import ContextWrapper from "ContextWrapper"
 import registerSW from "serviceWorkerRegistration"
-import refreshTokenBeforeExpires from "helpers/auth/refreshTokenBeforeExpires"
 import withRouter from "helpers/router/withRouter"
 import {createRoot, hydrateRoot} from "react-dom/client"
 import "styles/index.scss"
 
 if (typeof window !== "undefined") {
-	refreshTokenBeforeExpires()
 	const WrappedApp = withRouter(App)
 	if (document.documentElement.style.display !== "none" && document.getElementById("server-data")) {
 		console.log("hydrate")
