@@ -25,6 +25,7 @@
 @import "components/login-layout";
 
 @import "pages/home";
+@import "pages/login";
 
 body {
   &.tab-animating {
@@ -117,8 +118,6 @@ body.dev {
     background-color: red;
     outline: 4px solid blue;
   }
-
-  --primary-color: #3e90ff;
 
   .dev-simulate {
     @include desktop-media {

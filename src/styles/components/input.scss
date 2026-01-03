@@ -42,16 +42,11 @@ input.input-field {
   height: var(--input-height);
 }
 
-input[type="search"]::-webkit-search-cancel-button {
-  -webkit-appearance: none;
-  appearance: none;
-}
-
 .input-field {
   text-align: start;
   width: 100%;
   display: block;
-  background-color: var(--surface-first);
+  border: 1px solid var(--outline-second);
   color: var(--on-surface-first);
   border-radius: var(--third-radius);
   font-size: var(--title-font-size);
@@ -94,32 +89,46 @@ input[type="search"]::-webkit-search-cancel-button {
         font-size: var(--small-font-size);
 
         &:before {
-          background-color: var(--surface-first);
+          background-color: var(--surface-fourth);
         }
       }
     }
   }
 
   &:not(:placeholder-shown) {
+    border: 1px solid var(--outline-second);
+
     + .input-icons {
       .input-label-title {
         color: var(--on-surface-first);
+      }
+
+      .input-label-icon {
+        fill: var(--on-surface-first);
       }
     }
   }
 
   &:focus {
+    border: 1px solid var(--primary-color);
+
     + .input-icons {
       .input-label-title {
         color: var(--primary-color);
+      }
+
+      .input-label-icon {
+        fill: var(--primary-color);
       }
     }
   }
 
   &.error {
+    border: 1px solid var(--error-color);
   }
 
   &.success {
+    border: 1px solid var(--success-color);
   }
 }
 

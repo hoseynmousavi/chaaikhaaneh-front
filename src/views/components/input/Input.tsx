@@ -95,12 +95,10 @@ function Input(props: InputType) {
 				const acceptableValue = numberCorrection(value.replace(/ /g, "").replace(/\./g, "")).slice(0, 11)
 				return {acceptableValue, canContinue: !Number.isNaN(+acceptableValue)}
 			}
-			case "url": {
-				const acceptableValue = numberCorrection(value.replace(/ /g, "")).toLowerCase()
-				return {acceptableValue, canContinue: true}
-			}
+			case "username":
+			case "url":
 			case "email": {
-				const acceptableValue = numberCorrection(value.replace(/ /g, "").toLowerCase())
+				const acceptableValue = numberCorrection(value.replace(/ /g, "")).toLowerCase()
 				return {acceptableValue, canContinue: true}
 			}
 			default: {
@@ -115,6 +113,9 @@ function Input(props: InputType) {
 			case "phone": {
 				const phone = value.startsWith("0") ? value : `0${value}`
 				return REGEX.PHONE_REGEX.test(phone) ? phone : ""
+			}
+			case "username": {
+				return value
 			}
 			case "url": {
 				return REGEX.URL_REGEX.test(value) ? (value.startsWith("http") ? value : `https://${value}`) : ""

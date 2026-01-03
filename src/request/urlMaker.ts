@@ -3,7 +3,7 @@ import createQueryString from "helpers/query-param/createQueryString"
 import type {SubdomainType} from "types/RequestTypes"
 
 function urlMaker({url, params, subdomain}: {url: string; params?: Record<string, string | number | null | Array<string>>; subdomain?: SubdomainType}) {
-	return `${findBaseUrl(subdomain)}/${url}${params ? createQueryString({params}) : ""}`
+	return `${findBaseUrl(subdomain)}/${url}/${params ? createQueryString({params}) : ""}`
 }
 
 function findBaseUrl(subdomain?: SubdomainType) {

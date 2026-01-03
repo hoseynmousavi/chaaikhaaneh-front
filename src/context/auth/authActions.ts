@@ -14,8 +14,8 @@ function getProfile({authDispatch, cancelToken}: {authDispatch: Dispatch<SetUser
 	})
 }
 
-function login({username, password, cancelToken, authDispatch}: {username: string; password: string; cancelToken?: RefObject<AbortController | null>; authDispatch: Dispatch<SetUserActionType>}) {
-	return request.post({url: API_URLS.login, data: {username, password}, cancelToken}).then(({access, refresh, user}: {access: string; refresh: string; user: UserType}) => {
+function login({username, password, authDispatch}: {username: string; password: string; authDispatch: Dispatch<SetUserActionType>}) {
+	return request.post({url: API_URLS.login, data: {username, password}}).then(({access, refresh, user}: {access: string; refresh: string; user: UserType}) => {
 		_setCookies({access, refresh})
 		setUser({data: {user}, authDispatch})
 		setTimeout(() => {
