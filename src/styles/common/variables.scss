@@ -1,5 +1,5 @@
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
 
   &::view-transition {
     pointer-events: none;
@@ -55,12 +55,7 @@
 
   --desktop-modal-width: 520px;
 
-  @include desktop-media {
-    --first-solid-padding: calc(0.05 * var(--full-width));
-  }
-  @include mobile-media {
-    --first-solid-padding: 18px;
-  }
+  --first-solid-padding: 16px;
   --second-solid-padding: 24px;
 
   @include desktop-media {
@@ -81,6 +76,8 @@
   --first-max-page-width: min(1400px + 2 * var(--first-solid-padding), var(--full-width));
   --second-max-page-width: min(680px + 2 * var(--first-solid-padding), var(--full-width));
   --third-max-page-width: min(1200px + 2 * var(--first-solid-padding), var(--full-width));
+
+  --page-max-width: min(408px + 2 * var(--first-solid-padding), var(--full-width));;
 
   --first-line-height: 20px;
   --second-line-height: 24px;
@@ -112,8 +109,6 @@
   --primary-color: #09A073;
   --on-primary-color: var(--neutral-100-color);
   --primary-container-color: #1B292C;
-
-  --surface-container-first: var(--neutral-100-color);
 
   --on-surface-first: var(--neutral-20-color);
   --on-surface-second: var(--neutral-40-color);

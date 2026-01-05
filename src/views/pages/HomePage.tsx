@@ -1,11 +1,12 @@
-import Head from "views/components/router/Head"
-
 function HomePage() {
 	return (
-		<>
-			<Head title={"services"} />
-			<div>Chai Khane</div>
-		</>
+		<div className="home">
+			<main className="home-content">
+				<div id="main" className="home-content-fix">
+					salam
+				</div>
+			</main>
+		</div>
 	)
 }
 

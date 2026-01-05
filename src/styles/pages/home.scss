@@ -1,0 +1,30 @@
+.home {
+  @include desktop-media {
+    background-color: #111111;
+  }
+}
+
+.home-content {
+  background-color: var(--surface-second);
+
+  @include desktop-media {
+    transform: translate3d(0, 0, 0);
+    height: var(--min-full-height);
+    max-width: var(--page-max-width);
+    margin: 0 auto;
+    overflow: clip;
+  }
+}
+
+.home-content-fix {
+  @include desktop-media {
+    height: var(--min-full-height);
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+  }
+}
