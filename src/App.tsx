@@ -13,7 +13,7 @@ function App() {
 			<Switch level={1} isParentRendering>
 				<PrivateRoute path={URLS.mainContainer.routes.login} element={() => <LoginPage />} ifNotLogin />
 
-				<PrivateRoute path={URLS.mainContainer.routes.home} element={() => <HomePage />} />
+				<PrivateRoute path={URLS.mainContainer.routes.home.entry} element={route => <HomePage route={route} />} isContainer />
 			</Switch>
 
 			<AlertContainer />

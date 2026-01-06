@@ -5,7 +5,7 @@
 }
 
 .home-content {
-  background-color: var(--surface-second);
+  background-color: var(--surface-fourth);
 
   @include desktop-media {
     transform: translate3d(0, 0, 0);
@@ -27,4 +27,79 @@
       height: 0;
     }
   }
+}
+
+.home-page {
+  background-color: var(--surface-fourth);
+  padding: calc(var(--top-env-padding) + 20px) var(--first-solid-padding) calc(var(--bottom-env-padding) + 20px);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.home-page-card {
+  background: linear-gradient(to left, var(--primary-color), var(--first-primary-glass-color));
+  padding: 16px;
+  color: var(--on-primary-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: var(--third-radius);
+  position: relative;
+  overflow: clip;
+
+  &:after {
+    position: absolute;
+    content: '';
+    bottom: -8px;
+    left: -15%;
+    width: 56%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--primary-color);
+  }
+}
+
+.home-page-card-first {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  position: relative;
+  z-index: var(--default-z-index);
+}
+
+.home-page-card-first-title {
+  font-size: var(--title-font-size);
+  font-variation-settings: var(--bold-font-weight);
+}
+
+.home-page-card-first-desc {
+  font-size: var(--small-font-size);
+  font-variation-settings: var(--regular-font-weight);
+}
+
+.home-page-card-second {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: relative;
+  z-index: var(--default-z-index);
+}
+
+.home-page-card-second-top {
+  font-variation-settings: var(--bold-font-weight);
+  font-size: var(--huge-font-size);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.home-page-card-second-top-icon {
+  width: 18px;
+}
+
+.home-page-card-second {
+  font-size: var(--tiny-font-size);
+  font-variation-settings: var(--regular-font-weight);
 }

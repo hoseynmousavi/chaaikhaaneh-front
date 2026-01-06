@@ -55,7 +55,7 @@
 
   --desktop-modal-width: 520px;
 
-  --first-solid-padding: 16px;
+  --first-solid-padding: 20px;
   --second-solid-padding: 24px;
 
   @include desktop-media {
@@ -106,9 +106,10 @@
     --footer-gap: 24px;
   }
 
+  --first-primary-glass-color: rgb(from var(--primary-color) r g b / 0.8);
+
   --primary-color: #09A073;
   --on-primary-color: var(--neutral-100-color);
-  --primary-container-color: #1B292C;
 
   --on-surface-first: var(--neutral-20-color);
   --on-surface-second: var(--neutral-40-color);
@@ -164,6 +165,8 @@
   --first-modal-background-color: rgba(0, 0, 0, 0.5);
 
   --first-dark-background: rgba(0, 0, 0, 0.5);
+
+  --first-shadow: 0 4px 5px 0 #04060F0A;
 
   --first-radius: 4px;
   --second-radius: 6px;

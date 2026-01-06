@@ -9,8 +9,10 @@ const FA_TEXT = {
 	usernamePlaceholder: "ali",
 	password: "رمز عبور",
 
-	cancel: "انصراف",
-	confirm: "تایید",
+	monthlyPay: "پرداختی ماهانه شما",
+
+	overdue: "سررسید شده‌ها",
+	payments: "پرداخت شده‌ها",
 }
 
 export default FA_TEXT
