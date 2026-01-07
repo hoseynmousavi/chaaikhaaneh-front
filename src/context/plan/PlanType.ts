@@ -3,15 +3,12 @@ export interface PlanStateType {
 }
 
 export interface PlanType {
-	id: number
-	created_at: Date
-	amount: number
-	status: "active"
+	amount: number | null
 }
 
-export interface GetPlansActionType {
+export interface GetPlanActionType {
 	type: "GET_PLAN"
 	payload: {res: PlanType}
 }
 
-export type PlanActionType = GetPlansActionType | {type: "RESET_DATA"}
+export type PlanActionType = GetPlanActionType | {type: "RESET_DATA"}

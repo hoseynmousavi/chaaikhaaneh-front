@@ -30,42 +30,12 @@
     }
   }
 
-  --mobile-header-height: calc(var(--top-env-padding) + 56px);
-
-  --desktop-header-height: 64px;
-
-  --mobile-navbar-height-dynamic: var(--mobile-navbar-height);
-  --mobile-navbar-height: 64px;
-
-  @include desktop-media {
-    --mobile-bottom-page-padding: 0px;
-  }
-  @include mobile-media {
-    --mobile-bottom-page-padding: calc(var(--mobile-navbar-height-dynamic) + var(--bottom-env-padding));
-  }
-
-  @include desktop-media {
-    --desktop-top-page-padding: var(--desktop-header-height);
-  }
-  @include mobile-media {
-    --desktop-top-page-padding: 0px;
-  }
-
   --full-modal-height: calc(var(--dynamic-full-height) - var(--top-env-padding) - var(--mobile-modal-line-height) - var(--bottom-env-padding));
 
   --desktop-modal-width: 520px;
 
   --first-solid-padding: 20px;
   --second-solid-padding: 24px;
-
-  @include desktop-media {
-    --grid-card-gap: 24px;
-  }
-  @include mobile-media {
-    --grid-card-gap: 16px;
-  }
-
-  --mobile-grid-card-width: min(284px, var(--full-width) - (2 * var(--grid-card-gap)) - (2 * var(--first-solid-padding)));
 
   --x-small-btn-input-height: 24px;
   --small-btn-input-height: 32px;
@@ -99,16 +69,11 @@
   --second-transition-method: ease-in-out;
   --second-transition: var(--second-transition-method) var(--second-transition-time);
 
-  @include desktop-media {
-    --footer-gap: 64px;
-  }
-  @include mobile-media {
-    --footer-gap: 24px;
-  }
-
   --first-primary-glass-color: rgb(from var(--primary-color) r g b / 0.8);
 
-  --primary-color: #09A073;
+  //--primary-color: #09A073;
+  //--primary-color: #024f01;
+  --primary-color: #067508;
   --on-primary-color: var(--neutral-100-color);
 
   --on-surface-first: var(--neutral-20-color);

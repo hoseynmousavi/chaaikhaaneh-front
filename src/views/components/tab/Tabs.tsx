@@ -9,7 +9,7 @@ interface TabsProps {
 
 interface TabChildProps {
 	link: string
-	tabRef: (el: HTMLDivElement) => boolean | HTMLDivElement
+	tabRef: (el: HTMLDivElement) => void
 	isActive: boolean
 }
 
@@ -33,12 +33,16 @@ function Tabs(props: TabsProps) {
 		}
 	}
 
+	function setRef(index: number) {
+		return (el: HTMLDivElement) => {
+			tabsRef.current[index] = el
+			return () => delete tabsRef.current[index]
+		}
+	}
+
 	return (
 		<div ref={tabsContainerRef} className={`tabs ${className}`}>
-			{/** biome-ignore lint/suspicious/noAssignInExpressions: <well see> */}
-			{Children.map(children, (child, index) =>
-				cloneElement(child, {tabRef: (el: HTMLDivElement) => (el ? (tabsRef.current[index] = el) : delete tabsRef.current[index]), isActive: index === activeRouteIndex}),
-			)}
+			{Children.map(children, (child, index) => cloneElement(child, {tabRef: setRef(index), isActive: index === activeRouteIndex}))}
 			{(!!width || !!contX) && <div className="tabs-indicator" style={{width, left: x - contX}} />}
 		</div>
 	)

@@ -18,7 +18,7 @@ function HomePlanCard() {
 			</div>
 			<div className="home-page-card-second">
 				<div className="home-page-card-second-top">
-					<div>{showNumber(amount || 300000)}</div>
+					<div>{showNumber(amount || 0)}</div>
 					<TomanSvg className="home-page-card-second-top-icon" />
 				</div>
 				<div className="home-page-card-second–desc">{textConstant.monthlyPay}</div>

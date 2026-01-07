@@ -12,7 +12,7 @@ interface TabProps {
 function Tab(props: TabProps) {
 	const {tabRef, isActive, label, link, order} = props
 	return (
-		<MaterialLink className="tab" link={{to: link, replace: true}} style={{order}}>
+		<MaterialLink className="tab" link={{to: link, replace: true}} rippleColor="var(--surface-fourth)" style={{order}}>
 			<div ref={tabRef} className={`tab-inner ${isActive ? "active" : ""}`}>
 				{label}
 			</div>

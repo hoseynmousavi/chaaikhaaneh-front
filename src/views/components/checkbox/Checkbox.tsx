@@ -6,7 +6,7 @@ interface Props {
 	isActive: boolean
 }
 
-function Checkbox({isActive, mobileSize = "medium", desktopSize = "medium"}: Props) {
+function Checkbox({isActive, mobileSize, desktopSize}: Props) {
 	const desktopSizeClass = `desktop-${desktopSize || mobileSize || "medium"}`
 	const mobileSizeClass = `mobile-${mobileSize || desktopSize || "medium"}`
 	return (

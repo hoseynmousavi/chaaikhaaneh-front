@@ -113,6 +113,25 @@
   gap: 16px;
 }
 
+.home-page-tab-empty {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-page-tab-empty-icon {
+  width: 100%;
+}
+
+.home-page-tab-empty-title {
+  font-size: var(--title-font-size);
+  font-variation-settings: var(--bold-font-weight);
+  color: var(--on-surface-first);
+  text-align: center;
+}
+
 .home-payment-card {
   border: 1px solid var(--outline-second);
   border-radius: var(--third-radius);
@@ -141,6 +160,10 @@
   font-variation-settings: var(--medium-font-weight);
   font-size: var(--title-font-size);
   color: var(--on-surface-second);
+
+  @include skeleton {
+    border-radius: var(--second-radius);
+  }
 }
 
 .home-payment-card-first-badge {
@@ -162,9 +185,22 @@
   color: var(--on-surface-first);
   font-variation-settings: var(--bold-font-weight);
   font-size: var(--large-font-size);
+
+  @include skeleton {
+    border-radius: var(--second-radius);
+  }
 }
 
 .home-payment-card-second-icon {
   width: 18px;
   fill: var(--on-surface-first);
+}
+
+.home-page-pay {
+  position: fixed;
+  bottom: 0;
+  padding: 24px var(--first-solid-padding) calc(var(--bottom-env-padding) + 24px);
+  inset-inline: 0;
+  background-color: var(--surface-fourth);
+  z-index: var(--default-z-index);
 }

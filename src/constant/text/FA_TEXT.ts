@@ -15,6 +15,12 @@ const FA_TEXT = {
 	payments: "پرداخت شده‌ها",
 
 	overdue: "معوقه",
+
+	paymentsEmpty: "هنوز مبلغی پرداخت نکرده‌اید!",
+	dueEmpty: "مبلغ این ماه را پرداخت شده است!",
+	payGift: "پرداخت هدیه به مبلغ دلخواه",
+
+	pay: "پرداخت",
 }
 
 export default FA_TEXT
