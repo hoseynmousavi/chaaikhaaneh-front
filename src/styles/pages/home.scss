@@ -39,7 +39,8 @@
 
 .home-page-card {
   background: linear-gradient(to left, var(--primary-color), var(--first-primary-glass-color));
-  padding: 16px;
+  padding-inline: 16px;
+  height: 80px;
   color: var(--on-primary-color);
   display: flex;
   justify-content: space-between;
@@ -97,9 +98,73 @@
 
 .home-page-card-second-top-icon {
   width: 18px;
+  fill: var(--on-primary-color);
 }
 
 .home-page-card-second {
   font-size: var(--tiny-font-size);
   font-variation-settings: var(--regular-font-weight);
+}
+
+.home-page-tab {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.home-payment-card {
+  border: 1px solid var(--outline-second);
+  border-radius: var(--third-radius);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home-payment-card-first {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.home-payment-card-first-tick {
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+  border-radius: 50%;
+  fill: var(--success-color);
+  background-color: var(--success-container-color);
+}
+
+.home-payment-card-first-title {
+  font-variation-settings: var(--medium-font-weight);
+  font-size: var(--title-font-size);
+  color: var(--on-surface-second);
+}
+
+.home-payment-card-first-badge {
+  color: var(--error-color);
+  background-color: var(--error-container-color);
+  padding: 2px 8px;
+  border-radius: var(--fifth-radius);
+  font-size: var(--tiny-font-size);
+  font-variation-settings: var(--medium-font-weight);
+}
+
+.home-payment-card-second {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.home-payment-card-second-title {
+  color: var(--on-surface-first);
+  font-variation-settings: var(--bold-font-weight);
+  font-size: var(--large-font-size);
+}
+
+.home-payment-card-second-icon {
+  width: 18px;
+  fill: var(--on-surface-first);
 }

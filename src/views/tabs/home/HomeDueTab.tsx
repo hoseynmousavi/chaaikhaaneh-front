@@ -1,6 +1,6 @@
 import HomePaymentCard from "views/components/home/HomePaymentCard"
 
-function HomePaymentsTab() {
+function HomeDueTab() {
 	return (
 		<div className="home-page-tab">
 			<HomePaymentCard amount={300000} date={new Date()} />
@@ -8,4 +8,4 @@ function HomePaymentsTab() {
 	)
 }
 
-export default HomePaymentsTab
+export default HomeDueTab

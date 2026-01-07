@@ -19,7 +19,7 @@ const URLS = {
 			home: {
 				entry: "/",
 				routes: {
-					homeOverdue: "/",
+					homeDue: "/",
 
 					homePayments: "/payments",
 				},

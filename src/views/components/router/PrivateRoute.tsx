@@ -23,7 +23,7 @@ function PrivateRoute(props: Props) {
 
 	if (ifNotLogin) {
 		if (!isLogin) return <Route location={location} isRendering={isRendering} path={path} element={element} />
-		else return <Redirect to={URLS.mainContainer.routes.home.routes.homeOverdue} />
+		else return <Redirect to={URLS.mainContainer.routes.home.routes.homeDue} />
 	} else {
 		if (isLogin) return <Route location={location} isRendering={isRendering} path={path} element={element} />
 		else return <Redirect to={URLS.mainContainer.routes.login} />

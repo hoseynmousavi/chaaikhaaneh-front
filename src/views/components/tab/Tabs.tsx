@@ -36,7 +36,9 @@ function Tabs(props: TabsProps) {
 	return (
 		<div ref={tabsContainerRef} className={`tabs ${className}`}>
 			{/** biome-ignore lint/suspicious/noAssignInExpressions: <well see> */}
-			{Children.map(children, (child, index) => cloneElement(child, {tabRef: (el: HTMLDivElement) => (el ? (tabsRef.current[index] = el) : delete tabsRef.current[index]), isActive: index === activeRouteIndex}))}
+			{Children.map(children, (child, index) =>
+				cloneElement(child, {tabRef: (el: HTMLDivElement) => (el ? (tabsRef.current[index] = el) : delete tabsRef.current[index]), isActive: index === activeRouteIndex}),
+			)}
 			{(!!width || !!contX) && <div className="tabs-indicator" style={{width, left: x - contX}} />}
 		</div>
 	)

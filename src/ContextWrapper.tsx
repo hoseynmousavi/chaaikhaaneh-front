@@ -1,5 +1,6 @@
 import AuthProvider from "context/auth/authProvider"
 import LocationProvider from "context/location/locationReducer"
+import PlanProvider from "context/plan/planProvider"
 import ScreenProvider from "context/screen/screenProvider"
 import ScrollProvider from "context/scroll/scrollProvider"
 import ThemeProvider from "context/theme/themeProvider"
@@ -24,7 +25,9 @@ function ContextWrapper({children, req}: Props) {
 				<ScreenProvider>
 					<ThemeProvider>
 						<ScrollProvider>
-							<AuthProvider>{children}</AuthProvider>
+							<AuthProvider>
+								<PlanProvider>{children}</PlanProvider>
+							</AuthProvider>
 						</ScrollProvider>
 					</ThemeProvider>
 				</ScreenProvider>

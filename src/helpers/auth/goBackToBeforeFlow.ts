@@ -10,7 +10,7 @@ function goBackToBeforeFlow({entry}: {entry: string}) {
 			break
 		} else {
 			if (i === 0) {
-				router.replaceState({url: URLS.mainContainer.routes.home.routes.homeOverdue})
+				router.replaceState({url: URLS.mainContainer.routes.home.routes.homeDue})
 				break
 			}
 		}
