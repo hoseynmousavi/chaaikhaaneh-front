@@ -32,7 +32,15 @@ const FA_TEXT = {
 	paymentBack: "بازگشت به صفحه اصلی",
 	paymentAgain: "پرداخت مجدد",
 
+	back: "بازگشت",
+
 	changePass: "تغییر رمز عبور",
+	changePassDesc: "رمز عبور فعلی و رمز عبور جدید را وارد کنید",
+	enterOldPass: "رمز عبور فعلی",
+	enterNewPass: "رمز عبور جدید",
+
+	submit: "تایید",
+
 	logout: "خروج از حساب کاربری",
 	logoutDesc: "آیا مطمئن هستید؟",
 	logoutBtn: "خروج",

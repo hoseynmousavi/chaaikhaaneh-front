@@ -56,10 +56,15 @@ function refreshToken() {
 	})
 }
 
+function changePassword({old_password, new_password}: {old_password: string; new_password: string}) {
+	return request.patch({url: API_URLS.changePassword, data: {old_password, new_password, confirm_new_password: new_password}})
+}
+
 const authActions = {
 	getProfile,
 	login,
 	refreshToken,
+	changePassword,
 }
 
 export default authActions

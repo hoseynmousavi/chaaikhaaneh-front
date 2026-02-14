@@ -5,8 +5,11 @@ import numberCorrection from "helpers/input/numberCorrection"
 import numToPersian from "helpers/input/numToPersian"
 import onInputKeyDown from "helpers/input/onInputKeyDown"
 import getIsMobile from "helpers/theme/getIsMobile"
+import useToggle from "hooks/general/useToggle"
 import CircleDangerSvg from "media/svg/CircleDangerSvg"
 import CircleFillCloseSvg from "media/svg/CircleFillCloseSvg"
+import EyeSlashSvg from "media/svg/EyeSlashSvg"
+import EyeSvg from "media/svg/EyeSvg"
 import {type MouseEvent, type ReactNode, useEffect, useImperativeHandle, useRef, useState} from "react"
 import type {InputChangeInputType, InputType} from "types/InputType"
 import AutoHeight from "views/components/auto-height/AutoHeight"
@@ -57,9 +60,11 @@ function Input(props: InputType) {
 	const inputRef = useRef<HTMLInputElement>(null)
 	const errorTimer = useRef<ReturnType<typeof setTimeout>>(null)
 	const [error, setError] = useState<string | ReactNode>("")
-	const [value, setValue] = useState<string>(defaultValue || "")
+	const [value, setValue] = useState(defaultValue || "")
+	const [showPassword, toggleShowPassword] = useToggle(false)
 	const showError = parentError || error
 	const showSuccess = parentSuccess
+	const isPassword = type === "password"
 
 	useImperativeHandle(
 		ref,
@@ -199,8 +204,13 @@ function Input(props: InputType) {
 				<MaterialLink isDiv className={`input-label-end ${showEndEl ? "" : "hide"}`} onClick={onEndElClick}>
 					{showEndIcon ? <EndIcon className={`input-label-end-icon ${EndIconClassName}`} /> : <CircleFillCloseSvg className="input-label-end-icon" />}
 				</MaterialLink>
+				{isPassword && (
+					<MaterialLink isDiv className={`input-label-end password ${value ? "" : "hide"}`} onClick={toggleShowPassword}>
+						{showPassword ? <EyeSvg className="input-label-end-icon" /> : <EyeSlashSvg className="input-label-end-icon" />}
+					</MaterialLink>
+				)}
 				<Tag
-					className={`input-field hide-scroll ${!label ? "empty-label" : ""} ${showSuccess ? "success" : ""} ${showError ? "error" : ""} ${Icon ? "have-icon" : ""} ${showEndEl ? "have-end-el" : ""}`}
+					className={`input-field hide-scroll ${!label ? "empty-label" : ""} ${showSuccess ? "success" : ""} ${showError ? "error" : ""} ${Icon ? "have-icon" : ""} ${showEndEl && isPassword ? "have-end-el-pass" : showEndEl ? "have-end-el" : ""}`}
 					name={name}
 					style={{minHeight: areaMinHeight}}
 					placeholder={placeholder}
@@ -214,7 +224,7 @@ function Input(props: InputType) {
 					// @ts-expect-error
 					onClick={onClick}
 					onKeyDown={onInputKeyDown({onSubmit, onSubmitDisable, checkError, disableSubmit})}
-					type={type}
+					type={isPassword && showPassword ? "text" : type}
 					inputMode={inputMode}
 					enterKeyHint={enterKeyHint}
 					disabled={isDisable}

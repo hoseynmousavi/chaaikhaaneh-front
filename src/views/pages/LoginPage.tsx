@@ -1,9 +1,6 @@
 import IMAGES from "constant/images/IMAGES"
 import useLogin from "context/auth/hooks/useLogin"
 import getTextConstant from "helpers/general/getTextConstant"
-import useToggle from "hooks/general/useToggle"
-import EyeSlashSvg from "media/svg/EyeSlashSvg"
-import EyeSvg from "media/svg/EyeSvg"
 import {useState} from "react"
 import type {InputChangeOutputType} from "types/InputType"
 import Button from "views/components/button/Button"
@@ -12,7 +9,6 @@ import LoginLayout from "views/components/login/LoginLayout"
 
 function LoginPage() {
 	const textConstant = getTextConstant()
-	const [showPass, toggleShowPass] = useToggle(false)
 	const [values, setValues] = useState({username: "", password: ""})
 	const {username, password} = values
 	const disableSubmit = !username || !password
@@ -48,12 +44,11 @@ function LoginPage() {
 			<Input
 				className="login-input"
 				name="password"
-				type={showPass ? "text" : "password"}
+				type="password"
 				label={textConstant.password}
 				disableSubmit={disableSubmit}
 				onSubmit={onSubmit}
-				EndIcon={showPass ? EyeSvg : EyeSlashSvg}
-				onEndIconClick={toggleShowPass}
+				showClear
 				onChange={onChange}
 				ltr
 				minLength={8}

@@ -75,12 +75,16 @@
   padding: 24px;
 }
 
+.user-menu-logout-back {
+  margin-top: -24px;
+  margin-bottom: 12px;
+}
+
 .user-menu-logout-title {
   font-variation-settings: var(--bold-font-weight);
   font-size: var(--large-font-size);
   color: var(--on-surface-first);
 }
-
 
 .user-menu-logout-desc {
   font-variation-settings: var(--regular-font-weight);
@@ -88,4 +92,8 @@
   color: var(--on-surface-second);
   margin-top: 8px;
   margin-bottom: 24px;
+}
+
+.user-menu-pass-input {
+  margin-bottom: 16px;
 }

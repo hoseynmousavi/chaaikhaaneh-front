@@ -7,6 +7,7 @@ import {useState} from "react"
 import AutoHeight from "views/components/auto-height/AutoHeight"
 import MaterialLink from "views/components/material/MaterialLink"
 import Modal from "views/components/modal/Modal"
+import UserMenuModalChangePassword from "views/components/user-menu/UserMenuModalChangePassword"
 import UserMenuModalLogout from "views/components/user-menu/UserMenuModalLogout"
 
 interface Props {
@@ -36,7 +37,7 @@ function UserMenuModal({close}: Props) {
 			<AutoHeight>
 				{step === 0 ? (
 					<div className="user-menu-sheet">
-						<MaterialLink className="user-menu-sheet-item">
+						<MaterialLink className="user-menu-sheet-item" onClick={changeMenu({step: 1, selectedMenu: "password"})}>
 							<KeySvg className="user-menu-sheet-item-icon" />
 							<div className="user-menu-sheet-item-title">{textConstant.changePass}</div>
 							<ArrowLeftSvg className="user-menu-sheet-item-arrow" />
@@ -48,9 +49,9 @@ function UserMenuModal({close}: Props) {
 						</MaterialLink>
 					</div>
 				) : selectedMenu === "password" ? (
-					<></>
+					<UserMenuModalChangePassword back={changeMenu({step: 0, selectedMenu: "logout"})} />
 				) : (
-					<UserMenuModalLogout />
+					<UserMenuModalLogout back={changeMenu({step: 0, selectedMenu: "logout"})} />
 				)}
 			</AutoHeight>
 		</Modal>

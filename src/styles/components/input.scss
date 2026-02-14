@@ -72,7 +72,11 @@ input.input-field {
   }
 
   &.have-end-el {
-    padding-inline-end: calc(var(--input-height) / 4 + var(--input-height) / 2 + var(--input-height) / 4);
+    padding-inline-end: var(--input-height);
+  }
+
+  &.have-end-el-pass {
+    padding-inline-end: calc(2 * var(--input-height));
   }
 
   &:not(:placeholder-shown), &:focus {
@@ -206,6 +210,10 @@ input.input-field {
   border-radius: var(--third-radius);
   transform: scale(1);
   transition: transform var(--first-transition);
+
+  &.password {
+    inset-inline-end: var(--input-height);
+  }
 
   &.hide {
     transform: scale(0);
