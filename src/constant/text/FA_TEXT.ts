@@ -17,10 +17,25 @@ const FA_TEXT = {
 	overdue: "معوقه",
 
 	paymentsEmpty: "هنوز مبلغی پرداخت نکرده‌اید!",
-	dueEmpty: "مبلغ این ماه را پرداخت شده است!",
-	payGift: "پرداخت هدیه به مبلغ دلخواه",
+	dueEmpty: "موردی برای پرداخت نیست!",
+	payGift: "هدیه مبلغ دلخواه",
+	payGiftHolder: "مبلغ دلخواه",
 
 	pay: "پرداخت",
+
+	paySuccess: "پرداخت با موفقیت انجام شد!",
+	payFail: "پرداخت ناموفق بود.",
+
+	paySuccessDesc: "از همراهی و حمایت شما سپاسگزاریم.",
+	payFailDesc: "در صورت کسر وجه، مبلغ حداکثر تا ۷۲ ساعت آینده به حساب شما بازگردانده می‌شود.",
+
+	paymentBack: "بازگشت به صفحه اصلی",
+	paymentAgain: "پرداخت مجدد",
+
+	changePass: "تغییر رمز عبور",
+	logout: "خروج از حساب کاربری",
+	logoutDesc: "آیا مطمئن هستید؟",
+	logoutBtn: "خروج",
 }
 
 export default FA_TEXT

@@ -5,6 +5,7 @@ export const INPUT_VALIDATION_ERROR: Record<InputValidationType, string> = {
 	url: "لینک وارد شده معتبر نمی‌باشد",
 	email: "ایمیل وارد شده معتبر نمی‌باشد",
 	username: "نام کاربری وارد شده معتبر نمی‌باشد",
+	number: "حداقل مبلغ هدیه، 5,000 تومان می‌باشد",
 }
 
 export const INPUT_MIN_ERROR = (min: number | undefined) => `این فیلد باید حداقل شامل ${min} کاراکتر باشد.`

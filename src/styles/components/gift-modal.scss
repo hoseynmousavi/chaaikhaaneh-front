@@ -1,0 +1,25 @@
+.gift-modal {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.gift-modal-img {
+  width: 72px;
+  aspect-ratio: 72 / 60;
+}
+
+.gift-modal-title {
+  font-variation-settings: var(--bold-font-weight);
+  font-size: var(--large-font-size);
+  color: var(--on-surface-first);
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+.gift-modal-input {
+  width: 100%;
+  margin-bottom: 16px;
+}

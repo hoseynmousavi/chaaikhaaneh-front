@@ -6,6 +6,11 @@ const IMAGES = {
 	login: {
 		lock: "/media/images/login/lock.png",
 	},
+	payment: {
+		fail: "/media/images/payment/fail.png",
+		success: "/media/images/payment/success.png",
+		heart: "/media/images/payment/heart.png",
+	},
 }
 
 export default IMAGES

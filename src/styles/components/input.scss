@@ -218,3 +218,11 @@ input.input-field {
   height: 48%;
   fill: var(--on-surface-third);
 }
+
+.input-field-number {
+  font-size: var(--small-font-size);
+  font-variation-settings: var(--medium-font-weight);
+  color: var(--on-surface-first);
+  margin-top: 8px;
+  text-align: right;
+}

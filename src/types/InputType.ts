@@ -1,7 +1,7 @@
 import type {FocusEventHandler, MouseEventHandler, ReactNode, RefObject} from "react"
 import type {ComponentAsPropsType} from "types/ComponentAsPropsType"
 
-export type InputValidationType = "phone" | "email" | "url" | "username"
+export type InputValidationType = "phone" | "email" | "url" | "username" | "number"
 export type InputKeyboardType = "text" | "number" | "password" | "tel" | "url" | "email" | "search"
 export type InputKeyboardInputMode = "none" | "text" | "numeric" | "decimal" | "tel" | "email" | "url" | "search"
 export type InputKeyHintType = "enter" | "done" | "go" | "next" | "previous" | "search" | "send"

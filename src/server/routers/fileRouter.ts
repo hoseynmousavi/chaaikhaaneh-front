@@ -39,7 +39,7 @@ function fileRouter(app: Express) {
 	app.route("/:file").get((req: ExpressRequestType, res: ExpressResponseType, next: NextFunction) => {
 		const {file} = req.params
 		if (process.env.NODE_ENV === "production") {
-			if (files.indexOf(file) !== -1) {
+			if (typeof file === "string" && files.indexOf(file) !== -1) {
 				const shouldNotCache = noCacheFiles.indexOf(file) !== -1
 				setCacheHeader({
 					res,

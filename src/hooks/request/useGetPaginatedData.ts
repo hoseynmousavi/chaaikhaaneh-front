@@ -1,6 +1,4 @@
 import getWindowScrollAndHeight from "helpers/general/getWindowScrollAndHeight"
-import nothing from "helpers/general/nothing"
-import useEffectJustChanges from "hooks/general/useEffectJustChanges"
 import useSyncedState from "hooks/general/useSyncedState"
 import {useCallback, useEffect, useRef, useState} from "react"
 
@@ -21,14 +19,6 @@ function useGetPaginatedData(props: useGetPaginatedDataProps) {
 	const getMoreLoading = !shouldInitialGet && offset === previousOffset
 	const [notFound, setNotFound] = useState(false)
 	const [has500Err, setHas500Err] = useState(false)
-	const lastOffsetRef = useRef(offset)
-
-	useEffectJustChanges(() => {
-		if (lastOffsetRef.current && lastOffsetRef.current - 1 === offset) {
-			getData({newLimit: 1, newOffset: offset})?.catch?.(nothing)
-		}
-		lastOffsetRef.current = offset
-	}, [...(dependencies || []), offset])
 
 	const getMore = useCallback(() => {
 		if (getMoreOnScroll && !shouldInitialGet && !getDone && previousOffsetRef.current !== offset) {

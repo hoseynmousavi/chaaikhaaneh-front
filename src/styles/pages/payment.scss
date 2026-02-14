@@ -1,0 +1,49 @@
+.payment {
+  background-color: var(--surface-fourth);
+  padding: calc(var(--top-env-padding) + 80px) var(--first-solid-padding) calc(var(--bottom-env-padding) + 20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: calc(280px + 2 * var(--first-solid-padding));
+  margin-inline: auto;
+}
+
+.payment-pic {
+  width: 120px;
+  height: 120px;
+}
+
+.payment-price {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-variation-settings: var(--bold-font-weight);
+  font-size: var(--giant-font-size);
+  color: var(--on-surface-first);
+}
+
+.payment-price-icon {
+  width: 24px;
+  fill: var(--on-surface-second);
+}
+
+.payment-title {
+  margin-top: 16px;
+  font-variation-settings: var(--medium-font-weight);
+  font-size: var(--large-font-size);
+  color: var(--on-surface-first);
+}
+
+.payment-desc {
+  margin-top: 8px;
+  font-variation-settings: var(--regular-font-weight);
+  font-size: var(--title-font-size);
+  color: var(--on-surface-second);
+  margin-bottom: 24px;
+}
+
+.payment-pay {
+  margin-bottom: 16px;
+}

@@ -1,9 +1,28 @@
-export interface PlanStateType {
-	plan: null | PlanType
+export interface PlanType {
+	billing_anchor: Date
+	paid_through: Date
+	amount: number
+	overdue_months: number
 }
 
-export interface PlanType {
-	amount: number | null
+export interface PlanStateType {
+	plan: null | PlanType
+	paidTransactions: {
+		list: Array<TransactionType>
+		count: number | undefined
+		page: number | undefined
+	}
+}
+
+export interface TransactionType {
+	id: number
+	order_id: string
+	track_id: number
+	amount: number
+	months: number
+	status: "paid" | "failed"
+	paid_at: Date
+	payment_type: "extra" | "ss"
 }
 
 export interface GetPlanActionType {
@@ -11,4 +30,9 @@ export interface GetPlanActionType {
 	payload: {res: PlanType}
 }
 
-export type PlanActionType = GetPlanActionType | {type: "RESET_DATA"}
+export interface GetPaidTransactionsActionType {
+	type: "GET_PAID_TRANSACTIONS"
+	payload: {res: {count: number; results: Array<TransactionType>}; page: number}
+}
+
+export type PlanActionType = GetPlanActionType | GetPaidTransactionsActionType | {type: "RESET_DATA"}

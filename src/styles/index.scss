@@ -24,9 +24,12 @@
 @import "components/show-validation";
 @import "components/login-layout";
 @import "components/tabs";
+@import "components/gift-modal";
+@import "components/user-menu";
 
-@import "pages/home";
 @import "pages/login";
+@import "pages/payment";
+@import "pages/home";
 
 body {
   &.tab-animating {

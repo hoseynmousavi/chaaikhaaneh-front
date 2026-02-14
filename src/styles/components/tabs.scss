@@ -28,7 +28,7 @@
 }
 
 .tab-inner {
-  padding: 12px 8px;
+  padding: 10px 8px;
   transition: font-size var(--first-transition), font-variation-settings var(--first-transition), color var(--first-transition);
 
   &:not(.active) {

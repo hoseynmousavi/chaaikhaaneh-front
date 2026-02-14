@@ -2,12 +2,14 @@ import REGEX from "constant/general/REGEX"
 import {INPUT_MIN_ERROR, INPUT_VALIDATION_ERROR} from "constant/input/INPUT_VALIDATION_ERROR"
 import focusOnInput from "helpers/input/focusOnInput"
 import numberCorrection from "helpers/input/numberCorrection"
+import numToPersian from "helpers/input/numToPersian"
 import onInputKeyDown from "helpers/input/onInputKeyDown"
 import getIsMobile from "helpers/theme/getIsMobile"
 import CircleDangerSvg from "media/svg/CircleDangerSvg"
 import CircleFillCloseSvg from "media/svg/CircleFillCloseSvg"
 import {type MouseEvent, type ReactNode, useEffect, useImperativeHandle, useRef, useState} from "react"
 import type {InputChangeInputType, InputType} from "types/InputType"
+import AutoHeight from "views/components/auto-height/AutoHeight"
 import ShowValidation from "views/components/input/ShowValidation"
 import MaterialLink from "views/components/material/MaterialLink"
 
@@ -91,6 +93,10 @@ function Input(props: InputType) {
 
 	function getAcceptableValue(value: string) {
 		switch (validation) {
+			case "number": {
+				const acceptableValue = numberCorrection(value.replace(/ /g, "").replace(/\./g, ""))
+				return {acceptableValue, canContinue: !Number.isNaN(+acceptableValue)}
+			}
 			case "phone": {
 				const acceptableValue = numberCorrection(value.replace(/ /g, "").replace(/\./g, "")).slice(0, 11)
 				return {acceptableValue, canContinue: !Number.isNaN(+acceptableValue)}
@@ -110,6 +116,9 @@ function Input(props: InputType) {
 
 	function getValidatedValue(value: string) {
 		switch (validation) {
+			case "number": {
+				return !minLength || +value >= minLength ? value : ""
+			}
 			case "phone": {
 				const phone = value.startsWith("0") ? value : `0${value}`
 				return REGEX.PHONE_REGEX.test(phone) ? phone : ""
@@ -221,6 +230,16 @@ function Input(props: InputType) {
 						</div>
 					)}
 				</div>
+				{validation === "number" && (
+					<AutoHeight className="input-field-number">
+						{!!+value && (
+							<>
+								{numToPersian(value)}
+								{" تومان"}
+							</>
+						)}
+					</AutoHeight>
+				)}
 				<ShowValidation isError={true} text={showError} Icon={CircleDangerSvg} />
 				<ShowValidation isError={false} text={showSuccess} />
 			</label>

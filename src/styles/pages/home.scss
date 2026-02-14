@@ -31,10 +31,16 @@
 
 .home-page {
   background-color: var(--surface-fourth);
-  padding: calc(var(--top-env-padding) + 20px) var(--first-solid-padding) calc(var(--bottom-env-padding) + 20px);
+  padding: calc(var(--top-env-padding) + 16px) var(--first-solid-padding) calc(var(--bottom-env-padding) + 16px);
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
+}
+
+.home-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .home-page-card {
@@ -107,10 +113,9 @@
 }
 
 .home-page-tab {
-  margin-top: 24px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .home-page-tab-empty {
@@ -150,10 +155,17 @@
 .home-payment-card-first-tick {
   width: 24px;
   height: 24px;
-  padding: 4px;
   border-radius: 50%;
   fill: var(--success-color);
-  background-color: var(--success-container-color);
+
+  &.gift {
+    padding: 3px;
+  }
+
+  &:not(.gift) {
+    padding: 4px;
+    background-color: var(--success-container-color);
+  }
 }
 
 .home-payment-card-first-title {

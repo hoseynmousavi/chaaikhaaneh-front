@@ -18,7 +18,7 @@
 
   --language-direction: rtl;
 
-  --mobile-modal-line-height: 20px;
+  --mobile-modal-line-height: 24px;
 
   --top-env-padding: calc(env(safe-area-inset-top));
   --bottom-env-padding: calc(min(env(safe-area-inset-bottom), 24px));
@@ -44,8 +44,6 @@
   --x-large-btn-input-height: 56px;
 
   --first-max-page-width: min(1400px + 2 * var(--first-solid-padding), var(--full-width));
-  --second-max-page-width: min(680px + 2 * var(--first-solid-padding), var(--full-width));
-  --third-max-page-width: min(1200px + 2 * var(--first-solid-padding), var(--full-width));
 
   --page-max-width: min(408px + 2 * var(--first-solid-padding), var(--full-width));;
 

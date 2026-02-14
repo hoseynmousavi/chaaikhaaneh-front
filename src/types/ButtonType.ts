@@ -12,6 +12,7 @@ type btnType =
 	| "primary"
 	| "error"
 	| "info"
+	| "on-surface-first"
 	| "success"
 	| "ghost-primary"
 	| "ghost-info"

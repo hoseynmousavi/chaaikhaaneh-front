@@ -2,6 +2,7 @@ import URLS from "constant/routing/URLS"
 import getTextConstant from "helpers/general/getTextConstant"
 import {useState} from "react"
 import type {PageRouterType} from "types/RouterType"
+import HomeHeader from "views/components/home/HomeHeader"
 import HomePlanCard from "views/components/home/HomePlanCard"
 import Route from "views/components/router/Route"
 import Switch from "views/components/router/Switch"
@@ -21,8 +22,9 @@ function HomePage({route: {isRendering}}: PageRouterType) {
 	return (
 		<div className="home">
 			<main className="home-content">
-				<div id="main" className="home-content-fix">
+				<div className="home-content-fix">
 					<div className="home-page">
+						<HomeHeader />
 						<HomePlanCard />
 						<Tabs activeRouteIndex={activeRouteIndex}>
 							<Tab label={textConstant.payments} link={URLS.mainContainer.routes.home.routes.homePayments} order={2} />

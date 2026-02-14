@@ -16,12 +16,14 @@ const URLS = {
 
 			login: "/login",
 
+			payment: "/payment",
+
 			home: {
 				entry: "/",
 				routes: {
 					homeDue: "/",
 
-					homePayments: "/payments",
+					homePayments: "/home-payments",
 				},
 			},
 		},
