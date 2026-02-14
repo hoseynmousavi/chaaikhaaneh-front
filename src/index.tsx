@@ -32,13 +32,4 @@ if (typeof window !== "undefined") {
 
 function _captureError(...err: any[]) {
 	console.error(err)
-
-	// if (process.env.NODE_ENV === "production") {
-	//     import("@sentry/react").then(Sentry => {
-	//         Sentry.reactErrorHandler()(e, errorInfo)
-	//         if (e?.name === "ChunkLoadError") {
-	//             window.location.reload()
-	//         }
-	//     })
-	// }
 }

@@ -60,7 +60,6 @@ declare global {
 			REDIS_DB?: string
 			REDIS_PASSWORD?: string
 			API_BASE_URL?: string
-			SENTRY_DSN?: string
 		}
 	}
 }

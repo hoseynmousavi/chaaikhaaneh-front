@@ -43,6 +43,9 @@ function GiftModal({close}: Props) {
 				minLength={5000}
 				EndIcon={TomanSvg}
 				ltr
+				type="search"
+				inputMode="tel"
+				enterKeyHint="enter"
 			/>
 			<Button mobileIsFullWidth isLoading={isLoading} isDisable={isSubmitDisable} onClick={submit}>
 				{textConstant.pay}

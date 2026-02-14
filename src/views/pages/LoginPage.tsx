@@ -30,7 +30,6 @@ function LoginPage() {
 				className="login-input username"
 				name="username"
 				validation="username"
-				placeholder={textConstant.usernamePlaceholder}
 				label={textConstant.username}
 				disableSubmit={disableSubmit}
 				onSubmit={onSubmit}

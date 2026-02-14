@@ -6,7 +6,6 @@ const FA_TEXT = {
 	enter: "ورود",
 
 	username: "نام کاربری",
-	usernamePlaceholder: "ali",
 	password: "رمز عبور",
 
 	monthlyPay: "پرداختی ماهانه شما",

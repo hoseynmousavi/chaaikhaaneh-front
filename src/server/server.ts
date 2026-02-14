@@ -1,7 +1,5 @@
-import * as Sentry from "@sentry/bun"
 import URLS from "constant/routing/URLS"
 import express from "express"
-import {ENV_CONSTANT} from "helpers/general/ENV_CONSTANT"
 import {createClient} from "redis"
 import addRoutes from "server/helpers/addRoutes"
 import createMockRedis from "server/helpers/createMockRedis"
@@ -12,14 +10,6 @@ import fileRouter from "server/routers/fileRouter"
 import liveNessRouter from "server/routers/liveNessRouter"
 import manifestFileRouter from "server/routers/manifestFileRouter"
 import type {ExpressRequestType} from "types/ExpressRequestType"
-
-if (process.env.NODE_ENV === "production") {
-	if (process.env.SENTRY_DSN) {
-		Sentry.init({dsn: process.env.SENTRY_DSN, tracesSampleRate: 1.0, sampleRate: 1.0, environment: ENV_CONSTANT})
-	} else {
-		console.error("SENTRY_DSN not set")
-	}
-}
 
 const app = express()
 

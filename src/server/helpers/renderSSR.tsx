@@ -82,7 +82,6 @@ function _onError(req: ExpressRequestType, res: ExpressResponseType, err?: any) 
 			res.sent = true
 		}
 	} else {
-		// Sentry.captureException(err)
 		sendCsrHtml({req, res, status: 500})
 	}
 }
