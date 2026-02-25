@@ -10,17 +10,19 @@ const HomePage = lazy(() => import("views/pages/HomePage"))
 
 function App() {
 	return (
-		<>
-			<Switch level={1} isParentRendering>
-				<PrivateRoute path={URLS.mainContainer.routes.login} element={() => <LoginPage />} ifNotLogin />
+		<main>
+			<div id="main" className="main-cont">
+				<Switch level={1} isParentRendering>
+					<PrivateRoute path={URLS.mainContainer.routes.login} element={() => <LoginPage />} ifNotLogin />
 
-				<PrivateRoute path={URLS.mainContainer.routes.payment} element={() => <PaymentPage />} />
+					<PrivateRoute path={URLS.mainContainer.routes.payment} element={() => <PaymentPage />} />
 
-				<PrivateRoute path={URLS.mainContainer.routes.home.entry} element={route => <HomePage route={route} />} isContainer />
-			</Switch>
+					<PrivateRoute path={URLS.mainContainer.routes.home.entry} element={route => <HomePage route={route} />} isContainer />
+				</Switch>
 
-			<AlertContainer />
-		</>
+				<AlertContainer />
+			</div>
+		</main>
 	)
 }
 

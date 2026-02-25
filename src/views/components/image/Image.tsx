@@ -7,7 +7,24 @@ import type {BaseImageType, BaseImageTypeWithDesktop} from "types/ImageType"
 const ImageZoom = lazy(() => import("views/components/image/ImageZoom"))
 
 function Image(props: BaseImageType | BaseImageTypeWithDesktop) {
-	const {className = "", src, alt = "", loading = "lazy", zoomOnClick, preload, onClick, style, contRef, resize, onMouseEnter, onMouseLeave, onMouseDown, onTouchStart, onTouchMove, onTouchEnd} = props
+	const {
+		className = "",
+		src,
+		alt = "",
+		loading = "lazy",
+		zoomOnClick,
+		preload,
+		onClick,
+		style,
+		contRef,
+		resize,
+		onMouseEnter,
+		onMouseLeave,
+		onMouseDown,
+		onTouchStart,
+		onTouchMove,
+		onTouchEnd,
+	} = props
 	const tempRef = useRef<HTMLImageElement>(null)
 	const imgRef = contRef || tempRef
 	const [showZoom, setShowZoom] = useState(false)
@@ -19,7 +36,8 @@ function Image(props: BaseImageType | BaseImageTypeWithDesktop) {
 	const pictureClassName = "pictureClassName" in props ? props.pictureClassName : ""
 	const desktopSrc = "desktopSrc" in props ? props.desktopSrc : undefined
 	const desktopResize = "desktopResize" in props ? props.desktopResize : undefined
-	const {sizedImage: desktopSizedImage, placeholder: desktopPlaceholder} = desktopSrc && desktopResize ? getResizedImage({resize: desktopResize, src: desktopSrc}) : {}
+	const {sizedImage: desktopSizedImage, placeholder: desktopPlaceholder} =
+		desktopSrc && desktopResize ? getResizedImage({resize: desktopResize, src: desktopSrc}) : {}
 
 	function openZoom(e: MouseEvent) {
 		e.stopPropagation()
@@ -35,7 +53,10 @@ function Image(props: BaseImageType | BaseImageTypeWithDesktop) {
 	function onLoad() {
 		if (imgRef.current) {
 			loadedRef.current = true
-			failRef.current = !!((placeholder && imgRef.current.currentSrc.endsWith(placeholder)) || (desktopPlaceholder && imgRef.current.currentSrc.endsWith(desktopPlaceholder)))
+			failRef.current = !!(
+				(placeholder && imgRef.current.currentSrc.endsWith(placeholder)) ||
+				(desktopPlaceholder && imgRef.current.currentSrc.endsWith(desktopPlaceholder))
+			)
 			imgRef.current.className = `${className} image-loading-main ${failRef.current ? "load-fail" : "load-end"}` // load-fail and load-end are using in many css
 		}
 	}

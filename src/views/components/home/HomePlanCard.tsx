@@ -1,15 +1,18 @@
 import useUser from "context/auth/hooks/useUser"
-import useGetPlan from "context/plan/hooks/useGetPlan"
+import type {PlanType} from "context/plan/PlanType"
 import getTextConstant from "helpers/general/getTextConstant"
 import showNumber from "helpers/input/showNumber"
 import TomanSvg from "media/svg/TomanSvg"
 
-function HomePlanCard() {
+interface Props {
+	plan: PlanType | null
+}
+
+function HomePlanCard({plan}: Props) {
 	const textConstant = getTextConstant()
 	const {user} = useUser()
 	const {name, phone_number} = user || {}
-	const {data} = useGetPlan()
-	const {amount} = data || {}
+	const {amount} = plan || {}
 	return (
 		<div className="home-page-card">
 			<div className="home-page-card-first">
@@ -18,7 +21,7 @@ function HomePlanCard() {
 			</div>
 			<div className="home-page-card-second">
 				<div className="home-page-card-second-top">
-					<div>{showNumber(amount || 0)}</div>
+					<div>{amount ? showNumber(amount) : "---,---"}</div>
 					<TomanSvg className="home-page-card-second-top-icon" />
 				</div>
 				<div className="home-page-card-second–desc">{textConstant.monthlyPay}</div>

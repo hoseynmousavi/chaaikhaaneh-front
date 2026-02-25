@@ -68,7 +68,11 @@ function DesktopModal(props: DesktopModalType) {
 			<div className={`modal-background ${backClassName} ${hide ? "hide" : ""}`} onClick={goBackIfNotHiding} />
 			{/** biome-ignore lint/a11y/noStaticElementInteractions: <ok> */}
 			{/** biome-ignore lint/a11y/useKeyWithClickEvents: <ok> */}
-			<div className={`desktop-modal ${isAnchored ? "anchored" : ""} ${className} ${hide ? "hide" : ""}`} ref={desktopModalRef} onClick={stopPropagation}>
+			<div
+				className={`desktop-modal ${isAnchored ? "anchored" : ""} ${className} ${hide ? "hide" : ""}`}
+				ref={desktopModalRef}
+				onClick={stopPropagation}
+			>
 				{children}
 			</div>
 		</>,

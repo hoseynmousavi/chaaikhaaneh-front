@@ -36,7 +36,9 @@ function authReducer(state: AuthStateType = authInitialState, action: AuthAction
 		case "RESET_DATA": {
 			const {isAfterLogin} = action.payload
 			clearLocalStorage({
-				exceptKeys: isAfterLogin ? [...Object.values(LOCAL_STORAGE_VALUES.ACCOUNT), ...Object.values(LOCAL_STORAGE_VALUES.DEVICE)] : Object.values(LOCAL_STORAGE_VALUES.DEVICE),
+				exceptKeys: isAfterLogin
+					? [...Object.values(LOCAL_STORAGE_VALUES.ACCOUNT), ...Object.values(LOCAL_STORAGE_VALUES.DEVICE)]
+					: Object.values(LOCAL_STORAGE_VALUES.DEVICE),
 			})
 			return isAfterLogin ? state : authInit({isReset: true})
 		}

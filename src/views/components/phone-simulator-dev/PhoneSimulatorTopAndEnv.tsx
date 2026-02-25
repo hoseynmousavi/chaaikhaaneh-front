@@ -17,7 +17,18 @@ function PhoneSimulatorTopAndEnv() {
 					viewTransitionName: "simulate-top",
 				}}
 			>
-				<div style={{height: "80%", width: "42%", borderRadius: "0 0 12px 12px", backgroundColor: "black", position: "absolute", left: "50%", top: "0", transform: "translateX(-50%)"}} />
+				<div
+					style={{
+						height: "80%",
+						width: "42%",
+						borderRadius: "0 0 12px 12px",
+						backgroundColor: "black",
+						position: "absolute",
+						left: "50%",
+						top: "0",
+						transform: "translateX(-50%)",
+					}}
+				/>
 				<EarthSvg style={{fill: "white", width: "20px", backgroundColor: "black", borderRadius: "50%"}} />
 				<EarthSvg style={{fill: "white", width: "20px", backgroundColor: "black", borderRadius: "50%"}} />
 			</div>

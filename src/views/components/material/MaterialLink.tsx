@@ -3,7 +3,23 @@ import type {MaterialLinkType} from "types/MaterialLinkType"
 import useMaterialLink from "views/components/material/useMaterialLink"
 
 function MaterialLink(props: MaterialLinkType) {
-	const {children, isDiv, isLabel, rippleColor, className = "", style, onClick, onDisableClick, isDisable, disableRipple, ariaLabel, link, ref, onMouseEnter, onMouseLeave} = props
+	const {
+		children,
+		isDiv,
+		isLabel,
+		rippleColor,
+		className = "",
+		style,
+		onClick,
+		onDisableClick,
+		isDisable,
+		disableRipple,
+		ariaLabel,
+		link,
+		ref,
+		onMouseEnter,
+		onMouseLeave,
+	} = props
 
 	const {to, target} = link || {}
 	const Tag = isLabel ? "label" : isDiv ? "div" : to ? "a" : "button"

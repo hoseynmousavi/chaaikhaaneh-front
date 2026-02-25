@@ -26,7 +26,13 @@ function AlertModal(props: Props) {
 				{submitText}
 			</Button>
 			{cancelText && (
-				<Button className="alert-modal-cancel" desktopType="surface-third-outline-second-on-surface-first-icon-third" desktopIsFullWidth desktopSize="medium" onClick={router.back}>
+				<Button
+					className="alert-modal-cancel"
+					desktopType="surface-third-outline-second-on-surface-first-icon-third"
+					desktopIsFullWidth
+					desktopSize="medium"
+					onClick={router.back}
+				>
 					{cancelText}
 				</Button>
 			)}

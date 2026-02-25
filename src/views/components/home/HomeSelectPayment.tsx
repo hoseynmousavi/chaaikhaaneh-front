@@ -12,7 +12,9 @@ interface Props {
 
 function HomeSelectPayment({items, planAmount}: Props) {
 	const textConstant = getTextConstant()
-	const [selectedForPay, setSelectedForPay] = useState<number[]>(items.reduce((sum: Array<number>, i, index) => (i.defaultSelected ? [...sum, index] : sum), []))
+	const [selectedForPay, setSelectedForPay] = useState<number[]>(
+		items.reduce((sum: Array<number>, i, index) => (i.defaultSelected ? [...sum, index] : sum), []),
+	)
 	const isPayDisable = selectedForPay.length === 0
 	const {payByPlan, isLoading: payLoading} = usePayByPlan()
 
@@ -31,7 +33,15 @@ function HomeSelectPayment({items, planAmount}: Props) {
 	return (
 		<>
 			{items.map((item, index) => (
-				<HomePaymentCard key={index} amount={item.amount} date={item.date} isOverdue={item.isOverdue} isPaid={false} isSelectedForPay={selectedForPay.includes(index)} onClick={toggleSelect(index)} />
+				<HomePaymentCard
+					key={index}
+					amount={item.amount}
+					date={item.date}
+					isOverdue={item.isOverdue}
+					isPaid={false}
+					isSelectedForPay={selectedForPay.includes(index)}
+					onClick={toggleSelect(index)}
+				/>
 			))}
 
 			<div className="home-page-pay placeholder">

@@ -12,7 +12,16 @@ interface ImageZoomProps {
 }
 
 function ImageZoom({imgRef, close}: ImageZoomProps) {
-	const [showRect, setShowRect] = useState<{src: string; className: string; top: number; left: number; width: number; height: number; borderRadius: string; isHiding: boolean}>({
+	const [showRect, setShowRect] = useState<{
+		src: string
+		className: string
+		top: number
+		left: number
+		width: number
+		height: number
+		borderRadius: string
+		isHiding: boolean
+	}>({
 		src: "",
 		className: "",
 		top: 0,
@@ -90,7 +99,15 @@ function ImageZoom({imgRef, close}: ImageZoomProps) {
 	function closeImage() {
 		if (imgRef.current) {
 			const {top, left, width, height} = imgRef.current.getBoundingClientRect()
-			setShowRect(showRect => ({...showRect, top, left, width, height, borderRadius: imgRef.current ? getComputedStyle(imgRef.current).getPropertyValue("border-radius") : "", isHiding: true}))
+			setShowRect(showRect => ({
+				...showRect,
+				top,
+				left,
+				width,
+				height,
+				borderRadius: imgRef.current ? getComputedStyle(imgRef.current).getPropertyValue("border-radius") : "",
+				isHiding: true,
+			}))
 			setTimeout(close, 370)
 		}
 	}
@@ -111,7 +128,14 @@ function ImageZoom({imgRef, close}: ImageZoomProps) {
 				<Image
 					className={`${className} image-show-picture`}
 					contRef={imageRef}
-					style={{transition: "all var(--first-transition)", top: `${top}px`, left: `${left}px`, width: `${width}px`, height: `${height}px`, borderRadius: borderRadius}}
+					style={{
+						transition: "all var(--first-transition)",
+						top: `${top}px`,
+						left: `${left}px`,
+						width: `${width}px`,
+						height: `${height}px`,
+						borderRadius: borderRadius,
+					}}
 					src={src}
 					onMouseDown={onTouchStart}
 					onTouchStart={onTouchStart}

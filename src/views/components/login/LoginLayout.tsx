@@ -29,7 +29,11 @@ function LoginLayout({children, showBackBtn, title, desc, Icon, image}: Props) {
 						<LineArrowRightSvg />
 					</Button>
 				)}
-				{Icon ? <Icon className="login-box-icon" /> : image && <Image className="login-box-icon" src={image} resize={{size: null, aspectRatio: null}} />}
+				{Icon ? (
+					<Icon className="login-box-icon" />
+				) : (
+					image && <Image className="login-box-icon" src={image} resize={{size: null, aspectRatio: null}} />
+				)}
 				{title && <div className="login-box-title">{title}</div>}
 				{desc && <div className="login-box-desc">{desc}</div>}
 				{children}

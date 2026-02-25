@@ -45,7 +45,8 @@ function useMaterialLink(props: useMaterialType) {
 			const isExternal =
 				to.startsWith("mailto:") ||
 				target === "_blank" ||
-				(to.startsWith("http") && (new URL(to).host !== window.location.host || EXTERNAL_ROUTES.some(item => new URL(to).pathname.startsWith(item)))) ||
+				(to.startsWith("http") &&
+					(new URL(to).host !== window.location.host || EXTERNAL_ROUTES.some(item => new URL(to).pathname.startsWith(item)))) ||
 				(!to.startsWith("/") && !to.startsWith("http")) ||
 				EXTERNAL_ROUTES.some(item => to.startsWith(item))
 

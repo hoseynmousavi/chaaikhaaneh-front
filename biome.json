@@ -48,7 +48,7 @@
 	},
 	"javascript": {
 		"formatter": {
-			"lineWidth": 200,
+			"lineWidth": 150,
 			"quoteStyle": "double",
 			"arrowParentheses": "asNeeded",
 			"bracketSameLine": false,

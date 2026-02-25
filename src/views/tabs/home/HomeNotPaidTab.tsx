@@ -1,20 +1,22 @@
-import useGetPlan from "context/plan/hooks/useGetPlan"
+import type {PlanType} from "context/plan/PlanType"
 import getTextConstant from "helpers/general/getTextConstant"
 import HomeCreatePayments from "views/components/home/HomeCreatePayments"
 import HomeEmptyState from "views/components/home/HomeEmptyState"
 import HomePaymentCardSkeleton from "views/components/home/HomePaymentCardSkeleton"
 
-function HomeNotPaidTab() {
-	const textConstant = getTextConstant()
-	const {data: plan, isLoading} = useGetPlan()
-	const {amount, overdue_months, billing_anchor, paid_through} = plan || {}
+interface Props {
+	plan: PlanType | null
+	isPlanLoading: boolean
+}
 
+function HomeNotPaidTab({plan, isPlanLoading}: Props) {
+	const textConstant = getTextConstant()
 	return (
 		<div className="home-page-tab">
-			{isLoading ? (
+			{isPlanLoading ? (
 				new Array(3).fill(0).map((_, index) => <HomePaymentCardSkeleton key={index} />)
 			) : plan ? (
-				<HomeCreatePayments overdue_months={overdue_months!} amount={amount!} last_payment_date={new Date(new Date((paid_through || billing_anchor)!).setHours(0, 0, 0, 0))} />
+				<HomeCreatePayments plan={plan} />
 			) : (
 				<HomeEmptyState title={textConstant.dueEmpty} />
 			)}

@@ -18,7 +18,11 @@ if (typeof window !== "undefined") {
 		)
 	} else {
 		console.log("render")
-		const root = createRoot(document.getElementById("root")!, {onCaughtError: _captureError, onUncaughtError: _captureError, onRecoverableError: _captureError})
+		const root = createRoot(document.getElementById("root")!, {
+			onCaughtError: _captureError,
+			onUncaughtError: _captureError,
+			onRecoverableError: _captureError,
+		})
 		root.render(
 			<ContextWrapper>
 				<WrappedApp />

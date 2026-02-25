@@ -24,7 +24,10 @@ function ThemeProvider({children}: {children: ReactNode}) {
 			window.addEventListener("contextmenu", preventContextMenu, {passive: false})
 		} else {
 			if (isIOS) {
-				createIosSplashScreen({icon: `/icon_512.png?version=${process.env.REACT_APP_VERSION}`, backgroundColor: getComputedStyleHelper("--surface-fourth")})
+				createIosSplashScreen({
+					icon: `/icon_512.png?version=${process.env.REACT_APP_VERSION}`,
+					backgroundColor: getComputedStyleHelper("--surface-fourth"),
+				})
 			}
 		}
 	}, [])

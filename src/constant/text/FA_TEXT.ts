@@ -13,6 +13,8 @@ const FA_TEXT = {
 	notPaid: "پرداخت نشده‌ها",
 	paid: "پرداخت شده‌ها",
 
+	paidAt: "پرداخت در",
+
 	overdue: "معوقه",
 
 	paymentsEmpty: "هنوز مبلغی پرداخت نکرده‌اید!",

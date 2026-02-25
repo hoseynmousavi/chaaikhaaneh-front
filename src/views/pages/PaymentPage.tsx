@@ -21,28 +21,28 @@ function PaymentPage() {
 
 	if (isLoading) return <LoadingWrapper />
 	return (
-		<div className="home">
-			<main className="home-content">
-				<div className="home-content-fix">
-					<div className="payment">
-						<Image className="payment-pic" src={imgSrc} resize={{size: null, aspectRatio: null}} />
-						<div className="payment-price">
-							<div>{showNumber(amount)}</div>
-							<TomanSvg className="payment-price-icon" />
-						</div>
-						<div className="payment-title">{title}</div>
-						<div className="payment-desc">{desc}</div>
-						{/*{!isSuccess && (*/}
-						{/*	<Button mobileSize="medium" mobileType="on-surface-first" mobileIsRounded mobileIsFullWidth className="payment-pay">*/}
-						{/*		{textConstant.paymentAgain}*/}
-						{/*	</Button>*/}
-						{/*)}*/}
-						<Button mobileSize="medium" mobileType="surface-second-on-surface-first" mobileIsRounded mobileIsFullWidth link={{to: URLS.mainContainer.routes.home.routes.homeNotPaid, replace: true}}>
-							{textConstant.paymentBack}
-						</Button>
-					</div>
-				</div>
-			</main>
+		<div className="payment">
+			<Image className="payment-pic" src={imgSrc} resize={{size: null, aspectRatio: null}} />
+			<div className="payment-price">
+				<div>{showNumber(amount)}</div>
+				<TomanSvg className="payment-price-icon" />
+			</div>
+			<div className="payment-title">{title}</div>
+			<div className="payment-desc">{desc}</div>
+			{/*{!isSuccess && (*/}
+			{/*	<Button mobileSize="medium" mobileType="on-surface-first" mobileIsRounded mobileIsFullWidth className="payment-pay">*/}
+			{/*		{textConstant.paymentAgain}*/}
+			{/*	</Button>*/}
+			{/*)}*/}
+			<Button
+				mobileSize="medium"
+				mobileType="surface-second-on-surface-first"
+				mobileIsRounded
+				mobileIsFullWidth
+				link={{to: URLS.mainContainer.routes.home.routes.homeNotPaid, replace: true}}
+			>
+				{textConstant.paymentBack}
+			</Button>
 		</div>
 	)
 }

@@ -28,7 +28,12 @@ function useImageGesture() {
 		if (gesture.current && imageBackRef.current && imageRef.current) {
 			deltaY.current = posY.current - ("touches" in e ? e.touches?.[0].clientY : e.clientY)
 			posY.current = "touches" in e ? e.touches?.[0].clientY : e.clientY
-			translateY.current = translateY.current - deltaY.current <= maxDiff ? (translateY.current - deltaY.current >= -maxDiff ? translateY.current - deltaY.current : -maxDiff) : maxDiff
+			translateY.current =
+				translateY.current - deltaY.current <= maxDiff
+					? translateY.current - deltaY.current >= -maxDiff
+						? translateY.current - deltaY.current
+						: -maxDiff
+					: maxDiff
 			window.requestAnimationFrame(() => {
 				if (imageRef.current) imageRef.current.style.transform = `translate3d(0, ${translateY.current}px, 0)`
 			})

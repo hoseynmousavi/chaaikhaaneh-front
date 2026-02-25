@@ -11,7 +11,12 @@ const fileExtensionRegexp = /\/[^/?]+\.[^/]+$/
 
 registerRoute(new Route(({sameOrigin, url}) => sameOrigin && EXTERNAL_ROUTES.some(item => url.pathname.startsWith(item)), new NetworkOnly()))
 
-registerRoute(new Route(({request, sameOrigin}) => sameOrigin && request.destination === "document", new NetworkFirst({cacheName: "documents", plugins: [new ExpirationPlugin({maxEntries: 200})]})))
+registerRoute(
+	new Route(
+		({request, sameOrigin}) => sameOrigin && request.destination === "document",
+		new NetworkFirst({cacheName: "documents", plugins: [new ExpirationPlugin({maxEntries: 200})]}),
+	),
+)
 
 precacheAndRoute(self.__WB_MANIFEST)
 
@@ -22,12 +27,22 @@ registerRoute(({request, url}) => {
 }, createHandlerBoundToURL("/index.html"))
 
 registerRoute(
-	new Route(({request, url}) => request.destination === "image" && url.pathname.endsWith("tooltip.png"), new CacheFirst({cacheName: "tooltips", plugins: [new ExpirationPlugin({maxEntries: 4})]})),
+	new Route(
+		({request, url}) => request.destination === "image" && url.pathname.endsWith("tooltip.png"),
+		new CacheFirst({cacheName: "tooltips", plugins: [new ExpirationPlugin({maxEntries: 4})]}),
+	),
 )
 
-registerRoute(new Route(({request}) => request.destination === "image", new CacheFirst({cacheName: "images", plugins: [new ExpirationPlugin({maxEntries: 400})]})))
+registerRoute(
+	new Route(
+		({request}) => request.destination === "image",
+		new CacheFirst({cacheName: "images", plugins: [new ExpirationPlugin({maxEntries: 400})]}),
+	),
+)
 
-registerRoute(new Route(({request}) => request.destination === "font", new CacheFirst({cacheName: "fonts", plugins: [new ExpirationPlugin({maxEntries: 5})]})))
+registerRoute(
+	new Route(({request}) => request.destination === "font", new CacheFirst({cacheName: "fonts", plugins: [new ExpirationPlugin({maxEntries: 5})]})),
+)
 
 self.addEventListener("message", event => {
 	if (event.data && event.data.type === "SKIP_WAITING" && "skipWaiting" in self && typeof self.skipWaiting === "function") {

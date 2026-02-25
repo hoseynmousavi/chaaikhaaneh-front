@@ -101,7 +101,17 @@ function Switch(props: Props) {
 		return delta
 	}
 
-	function setStateFunc({e, showChildIndex, location, id = uuidGenerator()}: {e: PopStateEvent | {type: "update"}; showChildIndex: number; location: string; id?: string}) {
+	function setStateFunc({
+		e,
+		showChildIndex,
+		location,
+		id = uuidGenerator(),
+	}: {
+		e: PopStateEvent | {type: "update"}
+		showChildIndex: number
+		location: string
+		id?: string
+	}) {
 		lastScrollPosition.current = 0
 		const {type} = e || {}
 		let animeType = type
@@ -128,7 +138,10 @@ function Switch(props: Props) {
 				if (isPopState) {
 					const delta = getDelta({showChildIndex})
 					const lastItemRef = stateRef.current[stateRef.current.length - (delta + 1)]
-					stateRef.current = [...stateRef.current.slice(0, stateRef.current.length - (delta + 1)), {...lastItemRef, showChildIndex, location, ...(!lastItemRef?.id ? {id} : {})}]
+					stateRef.current = [
+						...stateRef.current.slice(0, stateRef.current.length - (delta + 1)),
+						{...lastItemRef, showChildIndex, location, ...(!lastItemRef?.id ? {id} : {})},
+					]
 					if (lastItemRef?.lastScrollY) lastScrollPosition.current = lastItemRef.lastScrollY
 				} else {
 					animeType = "pushstate"
@@ -157,7 +170,11 @@ function Switch(props: Props) {
 									changeState()
 									setTimeout(() => {
 										if (contRef.current) {
-											animate({element: contRef.current, keyframes: [{opacity: 0}, {opacity: 1}], options: {duration: 150, easing: "ease-in-out", fill: "forwards"}}).then(animation => {
+											animate({
+												element: contRef.current,
+												keyframes: [{opacity: 0}, {opacity: 1}],
+												options: {duration: 150, easing: "ease-in-out", fill: "forwards"},
+											}).then(animation => {
 												activeAnimateRef.current = animation
 												activeAnimateRef.current.finished.catch(nothing)
 											})
@@ -182,7 +199,17 @@ function Switch(props: Props) {
 		const {showChildIndex, location, id} = item || {}
 		const element = arrayChildren[showChildIndex]
 		if (element) {
-			return <SwitchItem key={id} element={element} location={location} index={index} stateLength={state.length} isParentRendering={isParentRendering} isTab={isTab} />
+			return (
+				<SwitchItem
+					key={id}
+					element={element}
+					location={location}
+					index={index}
+					stateLength={state.length}
+					isParentRendering={isParentRendering}
+					isTab={isTab}
+				/>
+			)
 		} else return null
 	})
 

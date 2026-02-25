@@ -2,7 +2,15 @@ import {O_AUTH_SERVER_URL, SERVER_URL} from "constant/routing/SERVER_URL"
 import createQueryString from "helpers/query-param/createQueryString"
 import type {SubdomainType} from "types/RequestTypes"
 
-function urlMaker({url, params, subdomain}: {url: string; params?: Record<string, string | number | null | Array<string>>; subdomain?: SubdomainType}) {
+function urlMaker({
+	url,
+	params,
+	subdomain,
+}: {
+	url: string
+	params?: Record<string, string | number | null | Array<string>>
+	subdomain?: SubdomainType
+}) {
 	return `${findBaseUrl(subdomain)}/${url}/${params ? createQueryString({params}) : ""}`
 }
 

@@ -19,7 +19,16 @@ function CircleTimer({color = "var(--primary-color)", percent, haveBg = false, s
 				strokeMiterlimit="10"
 			/>
 			{haveBg && (
-				<circle className="circle-timer-path transparent" style={{stroke: color, strokeDasharray: `125, 125`}} cx="50" cy="50" r="20" fill="none" strokeWidth={strokeWidth} strokeMiterlimit="10" />
+				<circle
+					className="circle-timer-path transparent"
+					style={{stroke: color, strokeDasharray: `125, 125`}}
+					cx="50"
+					cy="50"
+					r="20"
+					fill="none"
+					strokeWidth={strokeWidth}
+					strokeMiterlimit="10"
+				/>
 			)}
 		</svg>
 	)

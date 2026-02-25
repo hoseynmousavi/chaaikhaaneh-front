@@ -1,6 +1,14 @@
 import type {RefObject} from "react"
 
-function intersectionHelper({threshold, ref, callback}: {threshold: number; ref: RefObject<null | HTMLElement>; callback: ({isShowing}: {isShowing: boolean}) => void}) {
+function intersectionHelper({
+	threshold,
+	ref,
+	callback,
+}: {
+	threshold: number
+	ref: RefObject<null | HTMLElement>
+	callback: ({isShowing}: {isShowing: boolean}) => void
+}) {
 	let observer: IntersectionObserver | undefined
 
 	setTimeout(() => {

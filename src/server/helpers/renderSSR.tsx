@@ -35,8 +35,14 @@ function renderSSR({req, res, data = {}, status}: Props) {
 			})
 
 			html = html
-				.replace(`<div id="svg-container" style="display:none"></div>`, `<div id="svg-container" style="display: none">${Object.values(req.svgs || []).join("")}</div>`)
-				.replace(`<div id="root"></div>`, `<div id="root">${renderedBody}</div><script id="server-data">window.serverData = ${JSON.stringify(req.data)}</script>`)
+				.replace(
+					`<div id="svg-container" style="display:none"></div>`,
+					`<div id="svg-container" style="display: none">${Object.values(req.svgs || []).join("")}</div>`,
+				)
+				.replace(
+					`<div id="root"></div>`,
+					`<div id="root">${renderedBody}</div><script id="server-data">window.serverData = ${JSON.stringify(req.data)}</script>`,
+				)
 
 			if (!res.sent) {
 				try {

@@ -1,6 +1,6 @@
 export interface PlanType {
 	billing_anchor: Date
-	paid_through: Date
+	paid_through: Date | null
 	amount: number
 	overdue_months: number
 }

@@ -15,13 +15,15 @@ function getProfile({authDispatch, cancelToken}: {authDispatch: Dispatch<SetUser
 }
 
 function login({username, password, authDispatch}: {username: string; password: string; authDispatch: Dispatch<SetUserActionType>}) {
-	return request.post({url: API_URLS.login, data: {username, password}}).then(({access, refresh, user}: {access: string; refresh: string; user: UserType}) => {
-		_setCookies({access, refresh})
-		setUser({data: {user}, authDispatch})
-		setTimeout(() => {
-			resetDataManager.resetData({isAfterLogin: true})
-		}, 100)
-	})
+	return request
+		.post({url: API_URLS.login, data: {username, password}})
+		.then(({access, refresh, user}: {access: string; refresh: string; user: UserType}) => {
+			_setCookies({access, refresh})
+			setUser({data: {user}, authDispatch})
+			setTimeout(() => {
+				resetDataManager.resetData({isAfterLogin: true})
+			}, 100)
+		})
 }
 
 function setUser({data: {user}, authDispatch}: {data: {user: UserType}; authDispatch: Dispatch<SetUserActionType>}) {

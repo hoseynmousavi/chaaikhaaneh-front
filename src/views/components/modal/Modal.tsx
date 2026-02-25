@@ -8,7 +8,21 @@ import MobileModal from "views/components/modal/MobileModal"
 import ModalErrorBoundary from "views/error-boundaries/ModalErrorBoundary"
 
 function Modal(props: ModalType) {
-	const {mobileRootClassName = "", className = "", backClassName = "", children, close, statusBarColor, justDesktopView, root, desktopRoot, mobileRoot, disableClose, anchorOrigin, anchorRef} = props
+	const {
+		mobileRootClassName = "",
+		className = "",
+		backClassName = "",
+		children,
+		close,
+		statusBarColor,
+		justDesktopView,
+		root,
+		desktopRoot,
+		mobileRoot,
+		disableClose,
+		anchorOrigin,
+		anchorRef,
+	} = props
 	const {isMobile} = useScreen()
 	const modalRef = useRef<ModalImperativeRef>({})
 
@@ -24,7 +38,15 @@ function Modal(props: ModalType) {
 
 	if (isMobile && !justDesktopView) {
 		return (
-			<MobileModal mobileRootClassName={mobileRootClassName} className={className} backClassName={backClassName} close={close} ref={modalRef} root={mobileRoot || root} disableClose={disableClose}>
+			<MobileModal
+				mobileRootClassName={mobileRootClassName}
+				className={className}
+				backClassName={backClassName}
+				close={close}
+				ref={modalRef}
+				root={mobileRoot || root}
+				disableClose={disableClose}
+			>
 				<ModalErrorBoundary>{children}</ModalErrorBoundary>
 			</MobileModal>
 		)

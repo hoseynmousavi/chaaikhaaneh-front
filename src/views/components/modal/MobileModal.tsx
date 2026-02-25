@@ -42,7 +42,12 @@ function MobileModal(props: MobileModalType) {
 
 	function onTouchStart(e: TouchEvent | MouseEvent) {
 		stopPropagation(e)
-		if (e.target instanceof HTMLElement && !checkParentHasClass(e.target, MODAL_DONT_GESTURE) && !isHiding.current && !checkParentIsScrolling(e.target)) {
+		if (
+			e.target instanceof HTMLElement &&
+			!checkParentHasClass(e.target, MODAL_DONT_GESTURE) &&
+			!isHiding.current &&
+			!checkParentIsScrolling(e.target)
+		) {
 			posX.current = "touches" in e ? e.touches?.[0].clientX : e.clientX
 			posY.current = "touches" in e ? e.touches?.[0].clientY : e.clientY
 			startedGesturing.current = true
@@ -53,14 +58,25 @@ function MobileModal(props: MobileModalType) {
 		deltaX.current = posX.current - ("touches" in e ? e.touches?.[0].clientX : e.clientX)
 
 		if (isGesturing.current || (startedGesturing.current && deltaX.current < 8 && deltaX.current > -8)) {
-			if (e.target instanceof HTMLElement && !checkParentIsScrolling(e.target) && !!sidebarRef?.current && !!sidebarContentRef.current && !!modalBackRef.current) {
+			if (
+				e.target instanceof HTMLElement &&
+				!checkParentIsScrolling(e.target) &&
+				!!sidebarRef?.current &&
+				!!sidebarContentRef.current &&
+				!!modalBackRef.current
+			) {
 				stopPropagation(e)
 				isGesturing.current = true
 				deltaY.current = posY.current - ("touches" in e ? e.touches?.[0].clientY : e.clientY)
 				if (deltaY.current < 0) sidebarContentRef.current.style.overflowY = "hidden"
 				const {height, isFull} = getHeightAndFull()
 				posY.current = "touches" in e ? e.touches?.[0].clientY : e.clientY
-				translateY.current = translateY.current - deltaY.current >= 0 ? (translateY.current - deltaY.current <= height ? translateY.current - deltaY.current : height) : 0
+				translateY.current =
+					translateY.current - deltaY.current >= 0
+						? translateY.current - deltaY.current <= height
+							? translateY.current - deltaY.current
+							: height
+						: 0
 				window.requestAnimationFrame(() => {
 					if (sidebarRef.current) sidebarRef.current.style.transform = `translate3d(0, ${translateY.current}px, 0)`
 				})
@@ -161,7 +177,14 @@ function MobileModal(props: MobileModalType) {
 			<div className={`modal-background ${backClassName}`} ref={modalBackRef} onClick={goBackIfNotHiding} />
 			{/** biome-ignore lint/a11y/useKeyWithClickEvents: <ok> */}
 			{/** biome-ignore lint/a11y/noStaticElementInteractions: <ok> */}
-			<div className={`mobile-modal ${mobileRootClassName}`} ref={sidebarRef} onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onClick={stopPropagation}>
+			<div
+				className={`mobile-modal ${mobileRootClassName}`}
+				ref={sidebarRef}
+				onTouchStart={onTouchStart}
+				onTouchMove={onTouchMove}
+				onTouchEnd={onTouchEnd}
+				onClick={stopPropagation}
+			>
 				<div className="mobile-modal-line">
 					<div className="mobile-modal-line-line" />
 				</div>

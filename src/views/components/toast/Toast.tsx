@@ -37,12 +37,17 @@ function Toast(props: Props) {
 	useEffect(() => {
 		const toastRef = itemsRef.current[id].el
 		if (toastRef && !!progressBarRef.current) {
-			toastRef.style.transition = "height var(--first-transition), margin-bottom var(--first-transition), padding var(--first-transition), opacity var(--first-transition) var(--first-transition-time)"
+			toastRef.style.transition =
+				"height var(--first-transition), margin-bottom var(--first-transition), padding var(--first-transition), opacity var(--first-transition) var(--first-transition-time)"
 			toastRef.style.height = `${toastRef.scrollHeight}px`
 			toastRef.style.marginBottom = "8px"
 			toastRef.style.opacity = "1"
 
-			animate({element: progressBarRef.current, keyframes: [{width: "0%"}, {width: "100%"}], options: {duration: toastTimeMS, easing: "linear", fill: "forwards"}})
+			animate({
+				element: progressBarRef.current,
+				keyframes: [{width: "0%"}, {width: "100%"}],
+				options: {duration: toastTimeMS, easing: "linear", fill: "forwards"},
+			})
 				.then(animation => {
 					animationRef.current = animation
 					if (!isAppFocused) animationRef.current.pause()
@@ -102,7 +107,13 @@ function Toast(props: Props) {
 	return (
 		// biome-ignore lint/a11y/noStaticElementInteractions: <not important>
 		// biome-ignore lint/a11y/useKeyWithClickEvents: <not important>
-		<div className={`toast-item ${type}`} ref={setRef} style={{height: "0", opacity: "0", marginBottom: "0"}} onTouchEnd={!onClick ? clearItem : undefined} onClick={onClick ? onClickFunc : clearItem}>
+		<div
+			className={`toast-item ${type}`}
+			ref={setRef}
+			style={{height: "0", opacity: "0", marginBottom: "0"}}
+			onTouchEnd={!onClick ? clearItem : undefined}
+			onClick={onClick ? onClickFunc : clearItem}
+		>
 			<ShowIcon className={`toast-item-message-icon ${type}`} />
 			<div className="toast-item-message">
 				{message && <div className="toast-item-message-title">{message}</div>}

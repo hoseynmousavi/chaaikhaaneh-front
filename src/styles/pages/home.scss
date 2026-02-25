@@ -1,34 +1,3 @@
-.home {
-  @include desktop-media {
-    background-color: #111111;
-  }
-}
-
-.home-content {
-  background-color: var(--surface-fourth);
-
-  @include desktop-media {
-    transform: translate3d(0, 0, 0);
-    height: var(--min-full-height);
-    max-width: var(--page-max-width);
-    margin: 0 auto;
-    overflow: clip;
-  }
-}
-
-.home-content-fix {
-  @include desktop-media {
-    height: var(--min-full-height);
-    overflow: auto;
-
-    &::-webkit-scrollbar {
-      display: none;
-      width: 0;
-      height: 0;
-    }
-  }
-}
-
 .home-page {
   background-color: var(--surface-fourth);
   padding: calc(var(--top-env-padding) + 16px) var(--first-solid-padding) calc(var(--bottom-env-padding) + 16px);
@@ -172,10 +141,19 @@
   font-variation-settings: var(--medium-font-weight);
   font-size: var(--title-font-size);
   color: var(--on-surface-second);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 
   @include skeleton {
     border-radius: var(--second-radius);
   }
+}
+
+.home-payment-card-first-desc {
+  font-variation-settings: var(--regular-font-weight);
+  color: var(--on-surface-third);
+  font-size: var(--small-font-size);
 }
 
 .home-payment-card-first-badge {
@@ -219,6 +197,7 @@
     padding-inline: var(--first-solid-padding);
     z-index: var(--default-z-index);
     background-color: var(--surface-fourth);
+    border-top: 1px solid var(--outline-second);
   }
 
   &.placeholder {

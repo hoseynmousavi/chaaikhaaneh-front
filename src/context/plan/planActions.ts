@@ -23,12 +23,14 @@ function getPaidTransactions({
 	planDispatch: Dispatch<GetPaidTransactionsActionType>
 	cancelToken?: RefObject<AbortController | null>
 }) {
-	return request.get({url: API_URLS.getPaidTransactions, cancelToken, params: {status: "paid", page, page_size: pageSize}}).then((res: {count: number; results: Array<TransactionType>}) => {
-		planDispatch({
-			type: "GET_PAID_TRANSACTIONS",
-			payload: {res, page: page + 1},
+	return request
+		.get({url: API_URLS.getPaidTransactions, cancelToken, params: {status: "paid", page, page_size: pageSize}})
+		.then((res: {count: number; results: Array<TransactionType>}) => {
+			planDispatch({
+				type: "GET_PAID_TRANSACTIONS",
+				payload: {res, page: page + 1},
+			})
 		})
-	})
 }
 
 function payByPlan({months}: {months: number}) {
@@ -38,9 +40,11 @@ function payByPlan({months}: {months: number}) {
 }
 
 function payGift({amount}: {amount: number}) {
-	return request.post({url: API_URLS.payGift, data: {amount, description: "هدیه"}}).then((res: {track_id: string; order_id: string; payment_url: string}) => {
-		return res
-	})
+	return request
+		.post({url: API_URLS.payGift, data: {amount, description: "هدیه"}})
+		.then((res: {track_id: string; order_id: string; payment_url: string}) => {
+			return res
+		})
 }
 
 function getPaymentResult({track_id, cancelToken}: {track_id: string; cancelToken?: RefObject<AbortController | null>}) {

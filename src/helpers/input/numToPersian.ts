@@ -50,7 +50,20 @@ const letters: string[][] = [
 /**
  * Decimal suffixes for decimal part
  */
-const decimalSuffixes: string[] = ["", "دهم", "صدم", "هزارم", "ده‌هزارم", "صد‌هزارم", "میلیونوم", "ده‌میلیونوم", "صدمیلیونوم", "میلیاردم", "ده‌میلیاردم", "صد‌‌میلیاردم"] as string[]
+const decimalSuffixes: string[] = [
+	"",
+	"دهم",
+	"صدم",
+	"هزارم",
+	"ده‌هزارم",
+	"صد‌هزارم",
+	"میلیونوم",
+	"ده‌میلیونوم",
+	"صدمیلیونوم",
+	"میلیاردم",
+	"ده‌میلیاردم",
+	"صد‌‌میلیاردم",
+] as string[]
 
 const prepareNumber = (num: string | number): string[] => {
 	let out = typeof num === "number" ? num.toString() : num

@@ -10,7 +10,15 @@ import handleRefreshingRequests from "request/handleRefreshingRequests"
 import headerMaker from "request/headerMaker"
 import onUploadProgress from "request/onUploadProgress"
 import urlMaker from "request/urlMaker"
-import type {getByNetworkProps, RequestDelType, RequestErrorType, RequestGetType, RequestPatchType, RequestPostType, RequestUploadAxiosType} from "types/RequestTypes"
+import type {
+	getByNetworkProps,
+	RequestDelType,
+	RequestErrorType,
+	RequestGetType,
+	RequestPatchType,
+	RequestPostType,
+	RequestUploadAxiosType,
+} from "types/RequestTypes"
 
 function getByNetwork({reqUrl, dontToast, cancelToken, priority}: getByNetworkProps) {
 	return fetch(reqUrl, {headers: headerMaker(), signal: cancelMaker({cancelToken}), priority})
@@ -221,7 +229,11 @@ function _networkErrorHandler({err, dontToast, getUrl}: {err: any; dontToast?: b
 function uploadAxios({method, url, subdomain, data, params, progress, cancelToken, dontToast}: RequestUploadAxiosType) {
 	return import("axios").then(axios => {
 		const reqUrl = urlMaker({url, params, subdomain})
-		return axios.default[method](reqUrl, data, {headers: headerMaker(), signal: cancelMaker({cancelToken}), onUploadProgress: onUploadProgress({progress})})
+		return axios.default[method](reqUrl, data, {
+			headers: headerMaker(),
+			signal: cancelMaker({cancelToken}),
+			onUploadProgress: onUploadProgress({progress}),
+		})
 			.then(res => res.data)
 			.catch(err => {
 				if (err?.response?.status) {

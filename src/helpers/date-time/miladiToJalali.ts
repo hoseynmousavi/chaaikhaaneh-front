@@ -8,7 +8,8 @@ function miladiToJalali({year, month, day}: {year: number; month: number; day: n
 	}
 
 	// Calculate the day number in the Gregorian calendar
-	let g_day_no = 365 * (year - 1600) + Math.floor((year - 1600 + 3) / 4) - Math.floor((year - 1600 + 99) / 100) + Math.floor((year - 1600 + 399) / 400)
+	let g_day_no =
+		365 * (year - 1600) + Math.floor((year - 1600 + 3) / 4) - Math.floor((year - 1600 + 99) / 100) + Math.floor((year - 1600 + 399) / 400)
 	g_day_no += g_d_m[month - 1] + day - 1
 
 	if (month > 2 && isLeapGregorian(year)) {

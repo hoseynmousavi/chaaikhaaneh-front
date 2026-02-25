@@ -42,7 +42,9 @@ function ToastContainer() {
 	return (
 		<div className="toast-container">
 			<EmptyErrorBoundary>
-				<Suspense fallback={null}>{pageLoaded && activeToasts.map(item => <Toast key={item.id} itemsRef={itemsRef} item={item} clearMe={clearItem} />)}</Suspense>
+				<Suspense fallback={null}>
+					{pageLoaded && activeToasts.map(item => <Toast key={item.id} itemsRef={itemsRef} item={item} clearMe={clearItem} />)}
+				</Suspense>
 			</EmptyErrorBoundary>
 		</div>
 	)

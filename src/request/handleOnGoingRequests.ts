@@ -28,7 +28,11 @@ function checkRepeating({reqUrl}: {reqUrl: string}) {
 
 function broadCastIfNeeded({reqUrl, data, isOk}: {reqUrl: string; data?: any; isOk: boolean}) {
 	if (onGoingReqs[reqUrl]) {
-		dataShareManager.dataShare({status: isOk ? "OK" : "NOK", dataReqUrl: reqUrl, data: typeof structuredClone !== "undefined" ? structuredClone(data) : typeof data === "object" ? {...data} : data})
+		dataShareManager.dataShare({
+			status: isOk ? "OK" : "NOK",
+			dataReqUrl: reqUrl,
+			data: typeof structuredClone !== "undefined" ? structuredClone(data) : typeof data === "object" ? {...data} : data,
+		})
 		delete onGoingReqs[reqUrl]
 	}
 }
