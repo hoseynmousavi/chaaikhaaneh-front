@@ -25,11 +25,11 @@ function HomeCreatePayments({last_payment_date, amount, overdue_months}: Props) 
 
 	const nextJalaliYear = +numberCorrection(new Date().toLocaleDateString("fa-ir", {year: "numeric"})) + 1
 	const jalaliLastYearDay = new Date(Object.values(jalaliToMiladi({year: nextJalaliYear, month: 12, day: 29})).join("-"))
-	const diffToEndOfYear = (+jalaliLastYearDay - new Date(payments[payments.length - 1].date).getTime()) / (1000 * 60 * 60 * 24)
+	const diffToEndOfYear = (+jalaliLastYearDay - new Date(payments[payments.length - 1]?.date ?? last_payment_date).getTime()) / (1000 * 60 * 60 * 24)
 	new Array(Math.floor(diffToEndOfYear / 30)).fill(0).forEach(_ => {
 		payments.push({
 			amount,
-			date: new Date(new Date(payments[payments.length - 1].date).getTime() + 30 * (24 * 60 * 60 * 1000)),
+			date: new Date(new Date(payments[payments.length - 1]?.date ?? last_payment_date).getTime() + 30 * (24 * 60 * 60 * 1000)),
 			isOverdue: false,
 			defaultSelected: false,
 		})
