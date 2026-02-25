@@ -8,8 +8,8 @@ import Route from "views/components/router/Route"
 import Switch from "views/components/router/Switch"
 import Tab from "views/components/tab/Tab"
 import Tabs from "views/components/tab/Tabs"
-import HomeDueTab from "views/tabs/home/HomeDueTab"
-import HomePaymentsTab from "views/tabs/home/HomePaymentsTab"
+import HomeNotPaidTab from "views/tabs/home/HomeNotPaidTab"
+import HomePaidTab from "views/tabs/home/HomePaidTab"
 
 function HomePage({route: {isRendering}}: PageRouterType) {
 	const textConstant = getTextConstant()
@@ -27,13 +27,13 @@ function HomePage({route: {isRendering}}: PageRouterType) {
 						<HomeHeader />
 						<HomePlanCard />
 						<Tabs activeRouteIndex={activeRouteIndex}>
-							<Tab label={textConstant.payments} link={URLS.mainContainer.routes.home.routes.homePayments} order={2} />
-							<Tab label={textConstant.dues} link={URLS.mainContainer.routes.home.routes.homeDue} order={1} />
+							<Tab label={textConstant.paid} link={URLS.mainContainer.routes.home.routes.homePaid} order={2} />
+							<Tab label={textConstant.notPaid} link={URLS.mainContainer.routes.home.routes.homeNotPaid} order={1} />
 						</Tabs>
 
 						<Switch className="" isTab isParentRendering={isRendering} level={2} onActiveRouteChange={onActiveRouteChange}>
-							<Route path={URLS.mainContainer.routes.home.routes.homePayments} element={() => <HomePaymentsTab />} />
-							<Route path={URLS.mainContainer.routes.home.routes.homeDue} element={() => <HomeDueTab />} />
+							<Route path={URLS.mainContainer.routes.home.routes.homePaid} element={() => <HomePaidTab />} />
+							<Route path={URLS.mainContainer.routes.home.routes.homeNotPaid} element={() => <HomeNotPaidTab />} />
 						</Switch>
 					</div>
 				</div>

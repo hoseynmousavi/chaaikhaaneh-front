@@ -10,8 +10,8 @@ const FA_TEXT = {
 
 	monthlyPay: "پرداختی ماهانه شما",
 
-	dues: "سررسید شده‌ها",
-	payments: "پرداخت شده‌ها",
+	notPaid: "پرداخت نشده‌ها",
+	paid: "پرداخت شده‌ها",
 
 	overdue: "معوقه",
 

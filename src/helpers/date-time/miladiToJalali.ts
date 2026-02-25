@@ -1,8 +1,4 @@
-import getSplitDate from "helpers/date-time/getSplitDate"
-
-function miladiToJalali(gregorianDate: string) {
-	const {year: gYear, month: gMonth, day: gDay} = getSplitDate(gregorianDate)
-
+function miladiToJalali({year, month, day}: {year: number; month: number; day: number}) {
 	// Days of the year in Gregorian calendar before the month
 	const g_d_m = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334]
 
@@ -12,10 +8,10 @@ function miladiToJalali(gregorianDate: string) {
 	}
 
 	// Calculate the day number in the Gregorian calendar
-	let g_day_no = 365 * (gYear - 1600) + Math.floor((gYear - 1600 + 3) / 4) - Math.floor((gYear - 1600 + 99) / 100) + Math.floor((gYear - 1600 + 399) / 400)
-	g_day_no += g_d_m[gMonth - 1] + gDay - 1
+	let g_day_no = 365 * (year - 1600) + Math.floor((year - 1600 + 3) / 4) - Math.floor((year - 1600 + 99) / 100) + Math.floor((year - 1600 + 399) / 400)
+	g_day_no += g_d_m[month - 1] + day - 1
 
-	if (gMonth > 2 && isLeapGregorian(gYear)) {
+	if (month > 2 && isLeapGregorian(year)) {
 		g_day_no += 1
 	}
 

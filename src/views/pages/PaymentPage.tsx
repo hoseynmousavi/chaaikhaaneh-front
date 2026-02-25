@@ -37,7 +37,7 @@ function PaymentPage() {
 						{/*		{textConstant.paymentAgain}*/}
 						{/*	</Button>*/}
 						{/*)}*/}
-						<Button mobileSize="medium" mobileType="surface-second-on-surface-first" mobileIsRounded mobileIsFullWidth link={{to: URLS.mainContainer.routes.home.routes.homeDue, replace: true}}>
+						<Button mobileSize="medium" mobileType="surface-second-on-surface-first" mobileIsRounded mobileIsFullWidth link={{to: URLS.mainContainer.routes.home.routes.homeNotPaid, replace: true}}>
 							{textConstant.paymentBack}
 						</Button>
 					</div>

@@ -4,7 +4,7 @@ import HomeEmptyState from "views/components/home/HomeEmptyState"
 import HomePaymentCard from "views/components/home/HomePaymentCard"
 import HomePaymentCardSkeleton from "views/components/home/HomePaymentCardSkeleton"
 
-function HomePaymentsTab() {
+function HomePaidTab() {
 	const textConstant = getTextConstant()
 	const {data, isLoading} = useGetPaidTransactions()
 	return (
@@ -18,4 +18,4 @@ function HomePaymentsTab() {
 	)
 }
 
-export default HomePaymentsTab
+export default HomePaidTab
