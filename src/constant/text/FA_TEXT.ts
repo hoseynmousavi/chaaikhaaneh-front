@@ -21,6 +21,7 @@ const FA_TEXT = {
 	payGiftHolder: "مبلغ دلخواه",
 
 	pay: "پرداخت",
+	toman: "تومان",
 
 	paySuccess: "پرداخت با موفقیت انجام شد!",
 	payFail: "پرداخت ناموفق بود.",

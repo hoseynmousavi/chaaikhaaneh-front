@@ -1,16 +1,18 @@
 import usePayByPlan from "context/plan/hooks/usePayByPlan"
 import getTextConstant from "helpers/general/getTextConstant"
+import showNumber from "helpers/input/showNumber"
 import {useState} from "react"
 import Button from "views/components/button/Button"
 import HomePaymentCard from "views/components/home/HomePaymentCard"
 
 interface Props {
-	items: Array<{amount: number; date: Date; isOverdue: boolean}>
+	items: Array<{amount: number; date: Date; defaultSelected: boolean; isOverdue: boolean}>
+	planAmount: number
 }
 
-function HomeSelectPayment({items}: Props) {
+function HomeSelectPayment({items, planAmount}: Props) {
 	const textConstant = getTextConstant()
-	const [selectedForPay, setSelectedForPay] = useState<number[]>(items.map((_, index) => index))
+	const [selectedForPay, setSelectedForPay] = useState<number[]>(items.reduce((sum: Array<number>, i, index) => (i.defaultSelected ? [...sum, index] : sum), []))
 	const isPayDisable = selectedForPay.length === 0
 	const {payByPlan, isLoading: payLoading} = usePayByPlan()
 
@@ -38,6 +40,7 @@ function HomeSelectPayment({items}: Props) {
 			<div className="home-page-pay">
 				<Button mobileIsFullWidth isDisable={isPayDisable} isLoading={payLoading} onClick={pay}>
 					{textConstant.pay}
+					{isPayDisable ? "" : ` (${showNumber(selectedForPay.length * planAmount)} ${textConstant.toman})`}
 				</Button>
 			</div>
 		</>
