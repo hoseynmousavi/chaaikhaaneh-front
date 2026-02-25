@@ -21,12 +21,12 @@ function pushState({url, data = ""}: {url: string; data?: string | "for-history"
 }
 
 function replaceState({url, data = ""}: {url: string; data?: string | "for-history"}) {
-	if (comesFrom() === url && data !== "for-history") {
-		back()
-	} else {
-		const id = uuidGenerator()
-		window.routerReplaceState({id, data}, "", url)
-	}
+	// if (comesFrom() === url && data !== "for-history") {
+	// 	back()
+	// } else {
+	const id = uuidGenerator()
+	window.routerReplaceState({id, data}, "", url)
+	// }
 }
 
 function back(props?: {fallback?: string; delta?: number} | MouseEvent) {
