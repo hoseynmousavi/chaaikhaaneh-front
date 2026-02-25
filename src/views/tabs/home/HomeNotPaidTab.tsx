@@ -13,8 +13,8 @@ function HomeNotPaidTab() {
 		<div className="home-page-tab">
 			{isLoading ? (
 				new Array(3).fill(0).map((_, index) => <HomePaymentCardSkeleton key={index} />)
-			) : overdue_months && amount && (paid_through || billing_anchor) ? (
-				<HomeCreatePayments overdue_months={overdue_months} amount={amount} last_payment_date={new Date(new Date((paid_through || billing_anchor)!).setHours(0, 0, 0, 0))} />
+			) : plan ? (
+				<HomeCreatePayments overdue_months={overdue_months!} amount={amount!} last_payment_date={new Date(new Date((paid_through || billing_anchor)!).setHours(0, 0, 0, 0))} />
 			) : (
 				<HomeEmptyState title={textConstant.dueEmpty} />
 			)}
