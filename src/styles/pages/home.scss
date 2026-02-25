@@ -209,10 +209,19 @@
 }
 
 .home-page-pay {
-  position: fixed;
-  bottom: 0;
-  padding: 24px var(--first-solid-padding) calc(var(--bottom-env-padding) + 24px);
-  inset-inline: 0;
-  background-color: var(--surface-fourth);
-  z-index: var(--default-z-index);
+  padding-top: 24px;
+  padding-bottom: calc(var(--bottom-env-padding) + 24px);
+
+  &:not(.placeholder) {
+    position: fixed;
+    bottom: 0;
+    inset-inline: 0;
+    padding-inline: var(--first-solid-padding);
+    z-index: var(--default-z-index);
+    background-color: var(--surface-fourth);
+  }
+
+  &.placeholder {
+
+  }
 }

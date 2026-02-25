@@ -38,7 +38,7 @@ function refreshToken() {
 	const refresh = getToken({useRefreshToken: true})
 	return new Promise((resolve, reject) => {
 		request
-			.post({data: {refresh}, url: API_URLS.refreshToken, dontToast: true})
+			.post({data: {refresh}, url: API_URLS.refreshToken, dontToast: true, isRefresh: true})
 			.then(({access}: {access: string}) => {
 				_setCookies({access})
 				resolve(null)

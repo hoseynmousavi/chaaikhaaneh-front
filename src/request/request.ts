@@ -99,7 +99,7 @@ function get({url, subdomain, params, cancelToken, dontToast, ignoreRedis, prior
 	}
 }
 
-function post({url, subdomain, data, params, cancelToken, dontToast, priority}: RequestPostType) {
+function post({url, subdomain, data, params, cancelToken, dontToast, priority, isRefresh}: RequestPostType) {
 	const reqUrl = urlMaker({url, params, subdomain})
 	const isURLSearchParams = data instanceof URLSearchParams
 	const isFormData = data instanceof FormData
@@ -117,7 +117,7 @@ function post({url, subdomain, data, params, cancelToken, dontToast, priority}: 
 				if (res.ok) {
 					return data
 				} else {
-					return _serverErrorHandler({data, status: res.status, callback: () => post(arguments[0])})
+					return _serverErrorHandler({data, status: res.status, callback: () => post(arguments[0]), isRefresh})
 				}
 			})
 		})
@@ -172,9 +172,9 @@ function del({url, subdomain, params, cancelToken, dontToast, priority}: Request
 		})
 }
 
-function _serverErrorHandler({data, status, callback}: RequestErrorType) {
+function _serverErrorHandler({data, status, callback, isRefresh}: RequestErrorType) {
 	const refresh_token = getToken({useRefreshToken: true})
-	if (status === 401 && "code" in data && data.code === "token_not_valid" && refresh_token) {
+	if (!isRefresh && status === 401 && "detail" in data && data.detail === "Invalid token" && refresh_token) {
 		return handleRefreshingRequests.goForRefresh().then(callback)
 	} else {
 		throw {status, data}

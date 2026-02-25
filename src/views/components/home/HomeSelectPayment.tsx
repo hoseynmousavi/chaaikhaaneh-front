@@ -31,6 +31,10 @@ function HomeSelectPayment({items}: Props) {
 			{items.map((item, index) => (
 				<HomePaymentCard key={index} amount={item.amount} date={item.date} isOverdue={item.isOverdue} isPaid={false} isSelectedForPay={selectedForPay.includes(index)} onClick={toggleSelect(index)} />
 			))}
+
+			<div className="home-page-pay placeholder">
+				<div style={{height: "48px"}} />
+			</div>
 			<div className="home-page-pay">
 				<Button mobileIsFullWidth isDisable={isPayDisable} isLoading={payLoading} onClick={pay}>
 					{textConstant.pay}

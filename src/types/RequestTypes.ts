@@ -19,6 +19,7 @@ export interface RequestDelType extends RequestType {}
 
 export interface RequestPostType extends RequestType {
 	data: object
+	isRefresh?: boolean
 }
 
 export interface RequestPatchType extends RequestType {
@@ -38,6 +39,7 @@ export interface RequestServerErrorType {
 
 export interface RequestErrorType extends RequestServerErrorType {
 	callback: (value: any) => any
+	isRefresh?: boolean
 }
 
 export interface getByNetworkProps {
